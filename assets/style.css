@@ -202,8 +202,33 @@ body {
 }
 
 .wind_speed_graph {
+  display: flex;
+  flex-direction: row;
   width: 350px;
   height: 300px;
+}
+
+.wind_speed_numeric_value {
+  display: flex;
+  flex-direction: row;
+  margin-top: -140px;
+}
+
+.wind_speed_numeric_value_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -280px;
+  margin-left: 380px;
+}
+
+.wind_speed_direction_numeric_value {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -100px;
+  margin-left: 800px;
 }
 
 .cloud_image {
@@ -537,4 +562,69 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 15px;
+}
+
+.w_s_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  opacity: 60%;
+  font-size: 12px;
+}
+
+.w_s_number_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  font-size: 18px;
+  margin-top: -15px;
+}
+
+.w_s_number_value_column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.w_s_number_value_row {
+  display: flex;
+  flex-direction: row;
+  margin-top: -140px;
+  margin-left: 142px;
+}
+
+.compass_image {
+  display: flex;
+  flex-direction: row;
+  width: 55px;
+  height: 55px;
+}
+
+.w_d_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  opacity: 60%;
+  font-size: 12px;
+}
+
+.w_d_number_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.w_d_number_value_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: -15px;
+}
+
+.w_d_number_value_column {
+  display: flex;
+  flex-direction: column;
 }

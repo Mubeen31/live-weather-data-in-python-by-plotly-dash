@@ -14,7 +14,7 @@ external_stylesheets = [meta_tags, font_awesome]
 
 app = dash.Dash(__name__, external_stylesheets = external_stylesheets)
 
-app.layout = html.Div((
+app.layout = html.Div([
     html.Div([
         dcc.Interval(id = 'update_value',
                      interval = 3000,
@@ -64,7 +64,7 @@ app.layout = html.Div((
     html.Div(className = 'background_color_more_details'),
     html.Div([
         html.Div(className = 'more_details_bottom_border'),
-        ], className = 'more_details_bottom_border_row'),
+    ], className = 'more_details_bottom_border_row'),
     html.P('More Details',
            className = 'more_details'),
 
@@ -80,20 +80,24 @@ app.layout = html.Div((
         html.Div(id = 'sun_rise_status'),
         html.Img(src = app.get_asset_url('climate.png'),
                  className = 'circle_image'),
-        # html.Div([
-        #     html.I(className = 'far fa-circle fa-10x'),
-        # ], className = 'circle_image'),
         html.Div(id = 'sun_set_status'),
     ], className = 'sun_rise_set_status_value'),
 
     html.Div(className = 'background_sun_rise_set_right_border'),
 
-    dcc.Graph(id = 'wind_speed',
-              animate = False,
-              config = {'displayModeBar': 'hover'},
-              className = 'wind_speed_graph'),
+    html.Div([
+        dcc.Graph(id = 'wind_speed',
+                  animate = False,
+                  config = {'displayModeBar': False},
+                  className = 'wind_speed_graph'),
+        html.Div(id = 'wind_speed_value',
+                 className = 'wind_speed_numeric_value')
+    ], className = 'wind_speed_numeric_value_column'),
 
-))
+    html.Div(id = 'wind_direction_value',
+             className = 'wind_speed_direction_numeric_value')
+
+])
 
 
 @app.callback(Output('title_image_value', 'children'),
@@ -442,7 +446,7 @@ def update_graph_value(n_intervals):
                      'bordercolor': "rgb(0, 255, 255)",
                      'borderwidth': 0.5,
                      'threshold': {'line': {'color': "white", 'width': 2},
-                                   'thickness': 1, 'value': 25}
+                                   'thickness': 1, 'value': 7}
                      },
             # number = {'valueformat': '.2f',
             #           'font': {'size': 20},
@@ -462,6 +466,292 @@ def update_graph_value(n_intervals):
         ),
 
     }
+
+
+@app.callback(Output('wind_speed_value', 'children'),
+              [Input('update_value', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
+
+    return [
+            html.Div([
+                html.P('WIND SPEED',
+                       className = 'w_s_value'
+                       ),
+                html.P('{0:,.2f} kph'.format(get_wind_speed),
+                       className = 'w_s_number_value'
+                       ),
+            ], className = 'w_s_number_value_column'),
+    ]
+
+
+@app.callback(Output('wind_direction_value', 'children'),
+              [Input('update_value', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_wind_direction = df['Wind Direction'].tail(1).iloc[0].astype(float)
+
+    if get_wind_direction == 112.5:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('ESE',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 67.5:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('ENE',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 90:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('E',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 157.5:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('SSE',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 135:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('SE',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 202.5:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('SSW',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 180:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('S',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 22.5:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('NNE',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 45:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('NE',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 247.5:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('WSW',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 225:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('SW',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 337.5:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('NNW',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 0:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('N',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 292.5:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('WNW',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 315:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('NW',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
+    elif get_wind_direction == 270:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('compass.png'),
+                         className = 'compass_image'
+                         ),
+                html.Div([
+                    html.P('WIND DIRECTION',
+                           className = 'w_d_value'
+                           ),
+                    html.P('W',
+                           className = 'w_d_number_value'
+                           ),
+                ], className = 'w_d_number_value_row'),
+            ], className = 'w_d_number_value_column'),
+        ]
 
 
 if __name__ == "__main__":
