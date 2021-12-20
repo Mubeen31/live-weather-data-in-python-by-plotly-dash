@@ -14,7 +14,7 @@ external_stylesheets = [meta_tags, font_awesome]
 
 app = dash.Dash(__name__, external_stylesheets = external_stylesheets)
 
-app.layout = html.Div([
+app.layout = html.Div((
     html.Div([
         dcc.Interval(id = 'update_value',
                      interval = 3000,
@@ -44,7 +44,6 @@ app.layout = html.Div([
         ], className = 'title_date_time_container')
     ], className = 'title_date_time_container_overlay'),
 
-
     html.Div([
         html.Div(id = 'background_image_container',
                  className = 'background_image'),
@@ -52,7 +51,6 @@ app.layout = html.Div([
             html.Div(id = 'time_value')
         ], className = 'current_weather_time_value')
     ], className = 'background_image_current_weather_time_column'),
-
 
     html.Div(id = 'status_temperature',
              className = 'status_temperature_value'),
@@ -63,14 +61,29 @@ app.layout = html.Div([
     html.Div(id = 'numeric_value',
              className = 'status_numeric_value'),
 
-
     html.Div(className = 'background_color_more_details'),
     html.P('More Details',
            className = 'more_details'),
 
     html.Div(className = 'background_color_more_details_card'),
+    html.Div(id = 'uv_index',
+             className = 'uv_index_value'),
+    html.Div(id = 'air_pressure',
+             className = 'air_pressure_value'),
+    html.Div(id = 'air_quality',
+             className = 'air_quality_value'),
 
-])
+    html.Div([
+        html.Div(id = 'sun_rise_status'),
+        html.Div([
+            html.I(className = 'far fa-circle fa-10x'),
+        ], className = 'circle_image'),
+        html.Div(id = 'sun_set_status'),
+    ], className = 'sun_rise_set_status_value'),
+
+    html.Div(className = 'background_sun_rise_set'),
+
+))
 
 
 @app.callback(Output('title_image_value', 'children'),
@@ -214,7 +227,7 @@ def weather_value(n_intervals):
                        className = 'text_value'
                        ),
                 html.Div([
-                    html.P('{0:,.2f}kph'.format(get_wind),
+                    html.P('{0:,.2f} kph'.format(get_wind),
                            className = 'number_value'
                            ),
                     html.Img(src = app.get_asset_url('wind.png'),
@@ -228,7 +241,7 @@ def weather_value(n_intervals):
                        ], className = 'text_value'
                        ),
                 html.Div([
-                    html.P('{0:,.0f}ppm'.format(get_co2_level),
+                    html.P('{0:,.0f} ppm'.format(get_co2_level),
                            className = 'number_value'
                            ),
                     html.Img(src = app.get_asset_url('co2.png'),
@@ -242,7 +255,7 @@ def weather_value(n_intervals):
                        className = 'text_value'
                        ),
                 html.Div([
-                    html.P('{0:,.0f}pa'.format(get_air_pressure),
+                    html.P('{0:,.0f} pa'.format(get_air_pressure),
                            className = 'number_value'
                            ),
                     html.Img(src = app.get_asset_url('air.png'),
@@ -267,6 +280,139 @@ def weather_value(n_intervals):
 
         ], className = 'all_numeric_value_row'),
     ]
+
+
+@app.callback(Output('uv_index', 'children'),
+              [Input('update_value', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_humidity = df['Humidity'].tail(1).iloc[0].astype(float)
+    get_wind = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
+    get_co2_level = df['CO2 Level'].tail(1).iloc[0].astype(float)
+    get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
+
+    return [
+        html.Div([
+            html.Img(src = app.get_asset_url('uv.png'),
+                     className = 'uv_image'
+                     ),
+            html.Div([
+                html.P('UV INDEX',
+                       className = 'uv_index_text_value'
+                       ),
+
+                html.P('0' + ' ' + '-' + ' ' + 'Low',
+                       className = 'index_value'
+                       ),
+            ], className = 'uv_index_text_index_value')
+        ], className = 'uv_index_text_index_value_row'),
+
+    ]
+
+
+@app.callback(Output('air_pressure', 'children'),
+              [Input('update_value', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
+
+    return [
+        html.Div([
+            html.Img(src = app.get_asset_url('atmospheric-pressure.png'),
+                     className = 'atmospheric_image'
+                     ),
+            html.Div([
+                html.P('AIR PRESSURE',
+                       className = 'air_pressure_text_value'
+                       ),
+
+                html.P('{0:,.0f} pa'.format(get_air_pressure),
+                       className = 'air_value'
+                       ),
+            ], className = 'air_pressure_text_air_value')
+        ], className = 'air_pressure_text_air_value_row'),
+
+    ]
+
+
+@app.callback(Output('air_quality', 'children'),
+              [Input('update_value', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_air_quality = df['CO2 Level'].tail(1).iloc[0].astype(float)
+
+    return [
+        html.Div([
+            html.Img(src = app.get_asset_url('air-quality.png'),
+                     className = 'quality_image'
+                     ),
+            html.Div([
+                html.P('AIR QUALITY',
+                       className = 'air_quality_text_value'
+                       ),
+                html.Div([
+                    html.P('{0:,.0f} ppm'.format(get_air_quality),
+                           className = 'quality_value'
+                           ),
+                    html.P('Fair',
+                           className = 'air_quality_text_status')
+                ], className = 'air_quality_text_status_row')
+            ], className = 'air_quality_text_quality_value')
+        ], className = 'air_quality_text_quality_value_row'),
+
+    ]
+
+
+@app.callback(Output('sun_rise_status', 'children'),
+              [Input('update_value', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_air_quality = df['CO2 Level'].tail(1).iloc[0].astype(float)
+
+    return [
+        html.Div([
+            html.Img(src = app.get_asset_url('sunrise.png'),
+                     className = 'sunrise_image'
+                     ),
+            html.P('SUNRISE',
+                   className = 'sunrise_value'
+                   ),
+            html.P('08:14',
+                   className = 'sunrise_text_value'
+                   ),
+        ], className = 'sunrise_column'),
+    ]
+
+
+@app.callback(Output('sun_set_status', 'children'),
+              [Input('update_value', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_air_quality = df['CO2 Level'].tail(1).iloc[0].astype(float)
+
+    return (
+        html.Div([
+            html.Img(src = app.get_asset_url('sunset.png'),
+                     className = 'sunset_image'
+                     ),
+            html.P('SUNSET',
+                   className = 'sunset_value'
+                   ),
+            html.P('15:57',
+                   className = 'sunset_text_value'
+                   ),
+        ], className = 'sunset_column'),
+    )
 
 
 if __name__ == "__main__":

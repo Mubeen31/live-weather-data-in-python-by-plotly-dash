@@ -132,6 +132,57 @@ body {
   border-bottom-right-radius: 6px;
 }
 
+.uv_index_value {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -230px;
+  margin-left: -780px;
+}
+
+.air_pressure_value {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: -760px;
+  margin-top: 10px;
+}
+
+.air_quality_value {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: -740px;
+  margin-top: 10px;
+}
+
+.circle_image {
+  display: flex;
+  flex-direction: row;
+  color: #F4D03F;
+}
+
+.sun_rise_set_status_value {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -150px;
+  margin-left: -150px;
+}
+
+.background_sun_rise_set {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  background-color: rgba(255,255,255, 0);
+  width: 130px;
+  height: 200px;
+  margin-top: -202px;
+  border-right: 1px dashed;
+  color: rgba(255, 255, 255, 0.5);
+  opacity: 60%;
+}
+
 .cloud_image {
   display: flex;
   flex-direction: row;
@@ -187,7 +238,6 @@ body {
 .image_position {
   display: flex;
   flex-direction: row;
-  color: #FFFFFF;
   width: 55px;
   height: 55px;
 }
@@ -271,6 +321,7 @@ body {
   align-items: center;
   margin-top: -30px;
   gap: 5px;
+  white-space: pre;
 }
 
 .number_value_number_image_column {
@@ -281,5 +332,186 @@ body {
 .all_numeric_value_row {
   display: flex;
   flex-direction: row;
-  gap: 30px;
+  gap: 25px;
+}
+
+.uv_image {
+  display: flex;
+  flex-direction: row;
+  width: 55px;
+  height: 55px;
+}
+
+.uv_index_text_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  opacity: 60%;
+  font-size: 12px;
+}
+
+.index_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+.uv_index_text_index_value {
+  display: flex;
+  flex-direction: column;
+}
+
+.uv_index_text_index_value_row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.atmospheric_image {
+  display: flex;
+  flex-direction: row;
+  width: 55px;
+  height: 55px;
+}
+
+.air_pressure_text_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  opacity: 60%;
+  font-size: 12px;
+}
+
+.air_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+.air_pressure_text_air_value {
+  display: flex;
+  flex-direction: column;
+}
+
+.air_pressure_text_air_value_row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.quality_image {
+  display: flex;
+  flex-direction: row;
+  width: 55px;
+  height: 55px;
+}
+
+.air_quality_text_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  opacity: 60%;
+  font-size: 12px;
+}
+
+.quality_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+.air_quality_text_status {
+  display: flex;
+  flex-direction: row;
+  color: #00FF00;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+.air_quality_text_status_row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.air_quality_text_quality_value {
+  display: flex;
+  flex-direction: column;
+}
+
+.air_quality_text_quality_value_row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.sunrise_image {
+  display: flex;
+  flex-direction: row;
+}
+
+.sunrise_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  opacity: 60%;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.sunrise_text_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -12px;
+}
+
+.sunrise_column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.sunset_image {
+  display: flex;
+  flex-direction: row;
+}
+
+.sunset_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  opacity: 60%;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.sunset_text_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -12px;
+}
+
+.sunset_column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
 }
