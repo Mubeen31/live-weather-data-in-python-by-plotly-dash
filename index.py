@@ -61,7 +61,15 @@ app.layout = html.Div([
              className = 'status_paragraph_value'),
 
     html.Div(id = 'numeric_value',
-             className = 'status_numeric_value')
+             className = 'status_numeric_value'),
+
+
+    html.Div(className = 'background_color_more_details'),
+    html.P('More Details',
+           className = 'more_details'),
+
+    html.Div(className = 'background_color_more_details_card'),
+
 ])
 
 

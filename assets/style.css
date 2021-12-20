@@ -98,6 +98,40 @@ body {
   margin-top: 10px;
 }
 
+.background_color_more_details {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,.1);
+  width: 1000px;
+  height: 38px;
+  margin-top: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.more_details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: -800px;
+  margin-top: -30px;
+  color: #FFFFFF;
+}
+
+.background_color_more_details_card {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,.1);
+  width: 1000px;
+  height: 245px;
+  margin-top: -7px;;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
 .cloud_image {
   display: flex;
   flex-direction: row;
