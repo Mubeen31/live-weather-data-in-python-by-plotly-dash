@@ -120,6 +120,23 @@ body {
   color: #FFFFFF;
 }
 
+.more_details_bottom_border {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(255,255,255, 0);
+  width: 90px;
+  height: 38px;
+  margin-top: -40px;
+  border-bottom: 2px solid rgba(255, 255, 255);
+}
+
+.more_details_bottom_border_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: -800px;
+}
+
 .background_color_more_details_card {
   display: flex;
   flex-direction: row;
@@ -168,19 +185,25 @@ body {
   justify-content: center;
   margin-top: -150px;
   margin-left: -150px;
+  gap: 5px;
 }
 
-.background_sun_rise_set {
+.background_sun_rise_set_right_border {
   display: flex;
   flex-direction: row;
   margin: 0 auto;
   background-color: rgba(255,255,255, 0);
   width: 130px;
   height: 200px;
-  margin-top: -202px;
+  margin-top: -140px;
   border-right: 1px dashed;
   color: rgba(255, 255, 255, 0.5);
   opacity: 60%;
+}
+
+.wind_speed_graph {
+  width: 350px;
+  height: 300px;
 }
 
 .cloud_image {

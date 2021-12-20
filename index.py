@@ -62,6 +62,9 @@ app.layout = html.Div((
              className = 'status_numeric_value'),
 
     html.Div(className = 'background_color_more_details'),
+    html.Div([
+        html.Div(className = 'more_details_bottom_border'),
+        ], className = 'more_details_bottom_border_row'),
     html.P('More Details',
            className = 'more_details'),
 
@@ -75,13 +78,20 @@ app.layout = html.Div((
 
     html.Div([
         html.Div(id = 'sun_rise_status'),
-        html.Div([
-            html.I(className = 'far fa-circle fa-10x'),
-        ], className = 'circle_image'),
+        html.Img(src = app.get_asset_url('climate.png'),
+                 className = 'circle_image'),
+        # html.Div([
+        #     html.I(className = 'far fa-circle fa-10x'),
+        # ], className = 'circle_image'),
         html.Div(id = 'sun_set_status'),
     ], className = 'sun_rise_set_status_value'),
 
-    html.Div(className = 'background_sun_rise_set'),
+    html.Div(className = 'background_sun_rise_set_right_border'),
+
+    dcc.Graph(id = 'wind_speed',
+              animate = False,
+              config = {'displayModeBar': 'hover'},
+              className = 'wind_speed_graph'),
 
 ))
 
@@ -96,8 +106,8 @@ def weather_value(n_intervals):
 
     return [
         html.Div([
-                html.Img(src = app.get_asset_url('fog.png'),
-                         className = 'cloud_image'),
+            html.Img(src = app.get_asset_url('fog.png'),
+                     className = 'cloud_image'),
             html.P('{0:,.0f}°C'.format(get_temp),
                    className = 'temperature_value'
                    ),
@@ -413,6 +423,45 @@ def weather_value(n_intervals):
                    ),
         ], className = 'sunset_column'),
     )
+
+
+@app.callback(Output('wind_speed', 'figure'),
+              [Input('update_value', 'n_intervals')])
+def update_graph_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
+
+    return {
+        'data': [go.Indicator(
+            mode = 'gauge',
+            value = get_wind_speed,
+            gauge = {'axis': {'range': [None, 20], 'tickcolor': "white"},
+                     'bar': {'color': "rgba(0, 255, 255, 0.3)", 'thickness': 1},
+                     'bordercolor': "rgb(0, 255, 255)",
+                     'borderwidth': 0.5,
+                     'threshold': {'line': {'color': "white", 'width': 2},
+                                   'thickness': 1, 'value': 25}
+                     },
+            # number = {'valueformat': '.2f',
+            #           'font': {'size': 20},
+            #
+            #           },
+            domain = {'y': [0, 1], 'x': [0, 1]})],
+        'layout': go.Layout(
+            title = {'text': '',
+                     'y': 0.8,
+                     'x': 0.5,
+                     'xanchor': 'center',
+                     'yanchor': 'top'
+                     },
+            font = dict(color = 'white'),
+            paper_bgcolor = 'rgba(255, 255, 255, 0)',
+            plot_bgcolor = 'rgba(255, 255, 255, 0)',
+        ),
+
+    }
 
 
 if __name__ == "__main__":
