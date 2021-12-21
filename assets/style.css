@@ -276,7 +276,7 @@ body {
   display: flex;
   flex-direction: row;
   background-color: rgba(255,255,255, 0);
-  width: 90px;
+  width: 60px;
   height: 38px;
   margin-top: -40px;
   border-bottom: 2px solid rgba(255, 255, 255);
@@ -783,6 +783,10 @@ body {
   height: 170px;
 }
 
+.forecast_column:hover {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+}
+
 .forecast_row {
   display: flex;
   flex-direction: row;
@@ -809,4 +813,5 @@ body {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   gap: 50px;
+  margin-top: -2px;
 }

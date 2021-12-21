@@ -46,11 +46,11 @@ app.layout = html.Div([
 
     html.Div([
         html.Div([
-        html.Div(id = 'background_image_container',
-                 className = 'background_image'),
-        html.Div(id = 'accu_weather_card',
-                 className = 'accu_weather_card_background_color'),
-            ], className = 'accu_weather_card_background_color_row'),
+            html.Div(id = 'background_image_container',
+                     className = 'background_image'),
+            html.Div(id = 'accu_weather_card',
+                     className = 'accu_weather_card_background_color'),
+        ], className = 'accu_weather_card_background_color_row'),
         html.Div([
             html.Div(id = 'time_value')
         ], className = 'current_weather_time_value')
@@ -101,7 +101,7 @@ app.layout = html.Div([
     html.Div(id = 'wind_direction_value',
              className = 'wind_speed_direction_numeric_value'),
 
-html.Div(className = 'background_color_forecast'),
+    html.Div(className = 'background_color_forecast'),
     html.Div([
         html.Div(className = 'forecast_bottom_border'),
     ], className = 'forecast_bottom_border_row'),
@@ -112,7 +112,7 @@ html.Div(className = 'background_color_forecast'),
         html.Div(id = 'forecast_status'),
     ], className = 'forecast_status_adjust'),
 
-html.Div([
+    html.Div([
         html.Div(id = 'forecast_time_status'),
     ], className = 'forecast_time_status_adjust')
 
