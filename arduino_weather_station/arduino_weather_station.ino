@@ -36,9 +36,6 @@ float anemometerCircumference = anemometerDiameter * piValue;   //unit is "inch"
 float circumferenceRpm = 0.00;
 float divideInches = 0.00;
 float speedOfAir = 0.00;
-//const byte            ah3582_pin = 2;   // used for interrupt, 2 or 3 for Nano/ATmega328
-//const unsigned int    period     = 2000; // measurement period in ms
-//volatile unsigned int pulses;           // 1 per rotation, used in ISR, hence volatile
 ///////wind speed///////
 
 //////wind direction//////
@@ -93,8 +90,6 @@ void setup(){
 
 ///////wind speed///////
   pinMode(interruptPin, INPUT);           // set pin to input
-//  pinMode(ah3582_pin, INPUT); 
-//  attachInterrupt(digitalPinToInterrupt(ah3582_pin), ah3582InterruptPin, FALLING);
 ///////wind speed///////
 
 //////Atmospheric pressure and temperature//////
@@ -190,14 +185,6 @@ void loop() {
   Serial.print(" , ");          // create space
   Serial.print(speedOfAir);
   Serial.print(" , ");
-//  unsigned int pulses_read;
-//  pulses = 0; 
-//  delay(period);
-//  pulses_read = pulses;
-//  Serial.print(" , ");          // create space
-//  Serial.print((unsigned long)pulses_read); // revolutions
-//  Serial.print(" , ");          // create space
-//  Serial.println(((unsigned long)pulses_read * 60000) / period); // RPM
 ///////wind speed///////
 
 //////wind direction//////
@@ -232,7 +219,3 @@ void interruptFunction() //interrupt service routine
 {  
   revolutions++;
 }
-//void ah3582InterruptPin()
-//{
-//   pulses++;
-//}
