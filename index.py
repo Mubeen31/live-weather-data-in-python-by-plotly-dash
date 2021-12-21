@@ -110,7 +110,11 @@ html.Div(className = 'background_color_forecast'),
 
     html.Div([
         html.Div(id = 'forecast_status'),
-    ], className = 'forecast_status_adjust')
+    ], className = 'forecast_status_adjust'),
+
+html.Div([
+        html.Div(id = 'forecast_time_status'),
+    ], className = 'forecast_time_status_adjust')
 
 ])
 
@@ -1142,6 +1146,58 @@ def weather_value(n_intervals):
             ], className = 'forecast_column'),
 
         ], className = 'forecast_row'),
+    ]
+
+
+@app.callback(Output('forecast_time_status', 'children'),
+              [Input('update_value', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
+    get_humidity = df['Humidity'].tail(1).iloc[0].astype(float)
+    get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
+
+    return [
+                html.Div([
+                    html.P('00:00',
+                           className = 'time_text'
+                           ),
+                    html.P('01:00',
+                           className = 'time_text'
+                           ),
+                    html.P('02:00',
+                           className = 'time_text'
+                           ),
+                    html.P('03:00',
+                           className = 'time_text'
+                           ),
+                    html.P('04:00',
+                           className = 'time_text'
+                           ),
+                    html.P('05:00',
+                           className = 'time_text'
+                           ),
+                    html.P('06:00',
+                           className = 'time_text'
+                           ),
+                    html.P('07:00',
+                           className = 'time_text'
+                           ),
+                    html.P('08:00',
+                           className = 'time_text'
+                           ),
+                    html.P('09:00',
+                           className = 'time_text'
+                           ),
+                    html.P('10:00',
+                           className = 'time_text'
+                           ),
+                    html.P('11:00',
+                           className = 'time_text'
+                           ),
+                ], className = 'time_row'),
     ]
 
 

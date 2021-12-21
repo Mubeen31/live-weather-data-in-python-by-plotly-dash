@@ -296,6 +296,12 @@ body {
   margin-top: -8px;
 }
 
+.forecast_time_status_adjust {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .cloud_image {
   display: flex;
   flex-direction: row;
@@ -781,4 +787,26 @@ body {
   display: flex;
   flex-direction: row;
   gap: 3.55px;
+}
+
+.time_text {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.time_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255,255,255,.1);
+  width: 1000px;
+  height: 30px;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  gap: 50px;
 }
