@@ -105,8 +105,15 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.sentence_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
   margin-top: -45px;
-  margin-left: -375px;
+  margin-left: -350px;
 }
 
 .status_numeric_value {

@@ -17,7 +17,7 @@ app = dash.Dash(__name__, external_stylesheets = external_stylesheets)
 app.layout = html.Div([
     html.Div([
         dcc.Interval(id = 'update_value',
-                     interval = 6000,
+                     interval = 3000,
                      n_intervals = 0),
     ]),
 
@@ -58,9 +58,14 @@ app.layout = html.Div([
 
     html.Div(id = 'status_temperature',
              className = 'status_temperature_value'),
-
-    html.Div(id = 'status_paragraph',
+html.Div([
+    html.Div(id = 'first_sentence',
              className = 'status_paragraph_value'),
+html.Div(id = 'second_sentence',
+             className = 'status_paragraph_value'),
+html.Div(id = 'third_sentence',
+             className = 'status_paragraph_value'),
+    ], className = 'sentence_row'),
 
     html.Div(id = 'numeric_value',
              className = 'status_numeric_value'),
@@ -122,37 +127,143 @@ app.layout = html.Div([
 @app.callback(Output('title_image_value', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
+    get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
+    get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
+    get_led_on = df[df['Photo Resistor LED'] == ' LED ON ']['Photo Resistor LED'].tail(1).iloc[0]
 
-    return [
-        html.Div([
-            html.Img(src = app.get_asset_url('fog.png'),
-                     className = 'cloud_image'),
-            html.P('{0:,.0f}°C'.format(get_temp),
-                   className = 'temperature_value'
-                   ),
-        ], className = 'image_value'),
-    ]
+    if get_rain_value <= 500.0:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('rain.png'),
+                         className = 'cloud_image'),
+                html.P('{0:,.0f}°C'.format(get_temp),
+                       className = 'temperature_value'
+                       ),
+            ], className = 'image_value'),
+        ]
+
+    if get_rain_value <= 500.0 and get_led_on == ' LED ON ':
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('night-rain.png'),
+                         className = 'cloud_image'),
+                html.P('{0:,.0f}°C'.format(get_temp),
+                       className = 'temperature_value'
+                       ),
+            ], className = 'image_value'),
+        ]
+
+    if get_photo_resistor_value < 300.0:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('moon.png'),
+                         className = 'cloud_image'),
+                html.P('{0:,.0f}°C'.format(get_temp),
+                       className = 'temperature_value'
+                       ),
+            ], className = 'image_value'),
+        ]
+
+    elif get_photo_resistor_value >= 300.0 and get_photo_resistor_value <= 800.0:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('cloud.png'),
+                         className = 'cloud_image'),
+                html.P('{0:,.0f}°C'.format(get_temp),
+                       className = 'temperature_value'
+                       ),
+            ], className = 'image_value'),
+        ]
+
+    elif get_photo_resistor_value > 800.0 and get_photo_resistor_value <= 900.0:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('partly-cloud.png'),
+                         className = 'cloud_image'),
+                html.P('{0:,.0f}°C'.format(get_temp),
+                       className = 'temperature_value'
+                       ),
+            ], className = 'image_value'),
+        ]
+
+    elif get_photo_resistor_value > 900.0:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('sunny.png'),
+                         className = 'cloud_image'),
+                html.P('{0:,.0f}°C'.format(get_temp),
+                       className = 'temperature_value'
+                       ),
+            ], className = 'image_value'),
+        ]
 
 
 @app.callback(Output('background_image_container', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
-    get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
+    get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
+    get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
+    get_led_on = df[df['Photo Resistor LED'] == ' LED ON ']['Photo Resistor LED'].tail(1).iloc[0]
 
-    return [
-        html.Div(style = {'background-image': 'url("/assets/fog.jpg")',
-                          'background-repeat': 'no-repeat',
-                          'background-size': 'auto'
-                          },
-                 className = 'background_image_container'),
-    ]
+    if get_rain_value <= 500.0:
+        return [
+            html.Div(style = {'background-image': 'url("/assets/rain.jpg")',
+                              'background-repeat': 'no-repeat',
+                              'background-size': 'auto'
+                              },
+                     className = 'background_image_container'),
+        ]
+
+    if get_rain_value <= 500.0 and get_led_on == ' LED ON ':
+        return [
+            html.Div(style = {'background-image': 'url("/assets/night-rain.jpg")',
+                              'background-repeat': 'no-repeat',
+                              'background-size': 'auto'
+                              },
+                     className = 'background_image_container'),
+        ]
+
+    elif get_photo_resistor_value < 300.0:
+        return [
+            html.Div(style = {'background-image': 'url("/assets/night.jpg")',
+                              'background-repeat': 'no-repeat',
+                              'background-size': 'auto'
+                              },
+                     className = 'background_image_container'),
+        ]
+
+    elif get_photo_resistor_value >= 300.0 and get_photo_resistor_value <= 800.0:
+        return [
+            html.Div(style = {'background-image': 'url("/assets/cloudy-day.jpg")',
+                              'background-repeat': 'no-repeat',
+                              'background-size': 'auto'
+                              },
+                     className = 'background_image_container'),
+        ]
+    elif get_photo_resistor_value > 800.0 and get_photo_resistor_value <= 900.0:
+        return [
+            html.Div(style = {'background-image': 'url("/assets/partly-cloudy.jpg")',
+                              'background-repeat': 'no-repeat',
+                              'background-size': 'auto'
+                              },
+                     className = 'background_image_container'),
+        ]
+    elif get_photo_resistor_value > 900.0:
+        return [
+            html.Div(style = {'background-image': 'url("/assets/sunny.jpg")',
+                              'background-repeat': 'no-repeat',
+                              'background-size': 'auto'
+                              },
+                     className = 'background_image_container'),
+        ]
+
 
 
 @app.callback(Output('time_value', 'children'),
@@ -186,46 +297,243 @@ def weather_value(n_intervals):
                    'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
-    feels_like = df['Temperature'].tail(1).iloc[0].astype(float) - 20
+    feels_like = df['Temperature'].tail(1).iloc[0].astype(float) - 3
+    get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
+    get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
+    get_led_on = df[df['Photo Resistor LED'] == ' LED ON ']['Photo Resistor LED'].tail(1).iloc[0]
 
-    return [
-        html.Div([
+    if get_rain_value <= 500.0:
+        return [
             html.Div([
-                html.Img(src = app.get_asset_url('fog.png'),
-                         className = 'image_position'),
-                html.P('{0:,.0f}°C'.format(get_temp),
-                       className = 'status_temperature'
-                       ),
-            ], className = 'image_position_status_temperature'),
+                html.Div([
+                    html.Img(src = app.get_asset_url('rain.png'),
+                             className = 'image_position'),
+                    html.P('{0:,.0f}°C'.format(get_temp),
+                           className = 'status_temperature'
+                           ),
+                ], className = 'image_position_status_temperature'),
 
+                html.Div([
+                    html.P('Rain',
+                           className = 'status_temperature_right'
+                           ),
+                    html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(feels_like),
+                           className = 'status_temperature_right_temperature'
+                           ),
+                ], className = 'status_temperature_right_temperature_column')
+            ], className = 'status_temperature_right_temperature_row'),
+        ]
+
+    if get_rain_value <= 500.0 and get_led_on == ' LED ON ':
+        return [
             html.Div([
-                html.P('Fog',
-                       className = 'status_temperature_right'
-                       ),
-                html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(feels_like),
-                       className = 'status_temperature_right_temperature'
-                       ),
-            ], className = 'status_temperature_right_temperature_column')
-        ], className = 'status_temperature_right_temperature_row'),
-    ]
+                html.Div([
+                    html.Img(src = app.get_asset_url('night-rain.png'),
+                             className = 'image_position'),
+                    html.P('{0:,.0f}°C'.format(get_temp),
+                           className = 'status_temperature'
+                           ),
+                ], className = 'image_position_status_temperature'),
+
+                html.Div([
+                    html.P('Rain',
+                           className = 'status_temperature_right'
+                           ),
+                    html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(feels_like),
+                           className = 'status_temperature_right_temperature'
+                           ),
+                ], className = 'status_temperature_right_temperature_column')
+            ], className = 'status_temperature_right_temperature_row'),
+        ]
+
+    elif get_photo_resistor_value < 300.0:
+        return [
+            html.Div([
+                html.Div([
+                    html.Img(src = app.get_asset_url('moon.png'),
+                             className = 'image_position'),
+                    html.P('{0:,.0f}°C'.format(get_temp),
+                           className = 'status_temperature'
+                           ),
+                ], className = 'image_position_status_temperature'),
+
+                html.Div([
+                    html.P('Night',
+                           className = 'status_temperature_right'
+                           ),
+                    html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(feels_like),
+                           className = 'status_temperature_right_temperature'
+                           ),
+                ], className = 'status_temperature_right_temperature_column')
+            ], className = 'status_temperature_right_temperature_row'),
+        ]
+    elif get_photo_resistor_value >= 300.0 and get_photo_resistor_value <= 800.0:
+        return [
+            html.Div([
+                html.Div([
+                    html.Img(src = app.get_asset_url('cloud.png'),
+                             className = 'image_position'),
+                    html.P('{0:,.0f}°C'.format(get_temp),
+                           className = 'status_temperature'
+                           ),
+                ], className = 'image_position_status_temperature'),
+
+                html.Div([
+                    html.P('Cloudy',
+                           className = 'status_temperature_right'
+                           ),
+                    html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(feels_like),
+                           className = 'status_temperature_right_temperature'
+                           ),
+                ], className = 'status_temperature_right_temperature_column')
+            ], className = 'status_temperature_right_temperature_row'),
+        ]
+
+    elif get_photo_resistor_value > 800.0 and get_photo_resistor_value <= 900.0:
+        return [
+            html.Div([
+                html.Div([
+                    html.Img(src = app.get_asset_url('partly-cloud.png'),
+                             className = 'image_position'),
+                    html.P('{0:,.0f}°C'.format(get_temp),
+                           className = 'status_temperature'
+                           ),
+                ], className = 'image_position_status_temperature'),
+
+                html.Div([
+                    html.P('Partly cloudy',
+                           className = 'status_temperature_right'
+                           ),
+                    html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(feels_like),
+                           className = 'status_temperature_right_temperature'
+                           ),
+                ], className = 'status_temperature_right_temperature_column')
+            ], className = 'status_temperature_right_temperature_row'),
+        ]
+
+    elif get_photo_resistor_value > 900.0:
+        return [
+            html.Div([
+                html.Div([
+                    html.Img(src = app.get_asset_url('sunny.png'),
+                             className = 'image_position'),
+                    html.P('{0:,.0f}°C'.format(get_temp),
+                           className = 'status_temperature'
+                           ),
+                ], className = 'image_position_status_temperature'),
+
+                html.Div([
+                    html.P('Sunny',
+                           className = 'status_temperature_right'
+                           ),
+                    html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(feels_like),
+                           className = 'status_temperature_right_temperature'
+                           ),
+                ], className = 'status_temperature_right_temperature_column')
+            ], className = 'status_temperature_right_temperature_row'),
+        ]
 
 
-@app.callback(Output('status_paragraph', 'children'),
+@app.callback(Output('first_sentence', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
     header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
+    get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
+    get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
+    get_led_on = df[df['Photo Resistor LED'] == ' LED ON ']['Photo Resistor LED'].tail(1).iloc[0]
     now = datetime.now()
     day = now.strftime('%a')
     date = now.strftime('%d/%m/%Y')
     time = now.strftime('%H:%M:%S')
 
-    return [
-        html.P('The skies will be fogy. The low or high will be ' + '{0:,.0f}°C'.format(get_temp) + '.' + ' ' + 'Temperatures near freezing.',
-               className = 'status_paragraph_format'),
-    ]
+    if get_rain_value <= 500.0:
+        return [
+            html.P('Rain is expected during the day.',
+                   className = 'status_paragraph_format'),
+        ]
+    if get_rain_value <= 500.0 and get_led_on == ' LED ON ':
+        return [
+            html.P('Rain is expected during the night.',
+                   className = 'status_paragraph_format'),
+        ]
+    elif get_photo_resistor_value < 300.0:
+        return [
+            html.P('Now it is night.',
+                   className = 'status_paragraph_format'),
+        ]
+    elif get_photo_resistor_value >= 300.0 and get_photo_resistor_value <= 800.0:
+        return [
+            html.P('The skies wil be cloudy.',
+                   className = 'status_paragraph_format'),
+        ]
+    elif get_photo_resistor_value > 800.0 and get_photo_resistor_value <= 900.0:
+        return [
+            html.P('The skies wil be partly cloudy.',
+                   className = 'status_paragraph_format'),
+        ]
+    elif get_photo_resistor_value > 900.0:
+        return [
+            html.P('The skies wil be sunny.',
+                   className = 'status_paragraph_format'),
+        ]
+
+
+@app.callback(Output('second_sentence', 'children'),
+              [Input('update_time', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
+    get_temp_add = df['Temperature'].tail(1).iloc[0].astype(float) + 3.00
+    get_temp_subtract = df['Temperature'].tail(1).iloc[0].astype(float) - 3.00
+    get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
+    get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
+    get_led_on = df[df['Photo Resistor LED'] == ' LED ON ']['Photo Resistor LED'].tail(1).iloc[0]
+    now = datetime.now()
+    day = now.strftime('%a')
+    date = now.strftime('%d/%m/%Y')
+    time = now.strftime('%H:%M:%S')
+
+    if get_temp >= 1.00:
+        return [
+            html.P('The high will be ' + '{0:,.0f}°C'.format(get_temp_add) + '.',
+                   className = 'status_paragraph_format'),
+        ]
+    if get_temp <= 0.00:
+        return [
+            html.P('The low will be ' + '{0:,.0f}°C'.format(get_temp_subtract) + '.',
+                   className = 'status_paragraph_format'),
+        ]
+
+
+@app.callback(Output('third_sentence', 'children'),
+              [Input('update_time', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
+    get_temp_add = df['Temperature'].tail(1).iloc[0].astype(float) + 3.00
+    get_temp_subtract = df['Temperature'].tail(1).iloc[0].astype(float) - 3.00
+    get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
+    get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
+    get_led_on = df[df['Photo Resistor LED'] == ' LED ON ']['Photo Resistor LED'].tail(1).iloc[0]
+    now = datetime.now()
+    day = now.strftime('%a')
+    date = now.strftime('%d/%m/%Y')
+    time = now.strftime('%H:%M:%S')
+
+    if get_temp >= 1.00 and get_temp <= 4.00:
+        return [
+            html.P('Temperatures near freezing.',
+                   className = 'status_paragraph_format'),
+        ]
+    else:
+        []
 
 
 @app.callback(Output('numeric_value', 'children'),
@@ -405,10 +713,11 @@ def weather_value(n_intervals):
 @app.callback(Output('sun_rise_status', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_air_quality = df['CO2 Level'].tail(1).iloc[0].astype(float)
+    led_on = df[df['Photo Resistor LED'] == ' LED OFF ']['Time'].iloc[0]
 
     return [
         html.Div([
