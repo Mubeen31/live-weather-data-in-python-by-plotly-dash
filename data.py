@@ -3,7 +3,7 @@ import csv
 from datetime import datetime
 
 # copy the port from your Arduino editor
-PORT = 'COM3'
+PORT = 'COM4'
 ser = serial.Serial(PORT, 9600)
 
 while True:
