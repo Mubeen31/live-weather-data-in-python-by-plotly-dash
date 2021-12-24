@@ -169,26 +169,18 @@ body {
   margin: 0 auto;
   background-color: rgba(255,255,255,.1);
   width: 1000px;
-  height: 245px;
+  height: 200px;
   margin-top: -7px;;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
-}
-
-.uv_index_value {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: -230px;
-  margin-left: -780px;
 }
 
 .air_pressure_value {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-left: -760px;
-  margin-top: 10px;
+  margin-left: -690px;
+  margin-top: -170px;
 }
 
 .air_quality_value {
@@ -202,14 +194,13 @@ body {
 .circle_image {
   display: flex;
   flex-direction: row;
-  color: #F4D03F;
 }
 
 .sun_rise_set_status_value {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: -150px;
+  margin-top: -120px;
   margin-left: -150px;
   gap: 5px;
 }
@@ -220,8 +211,8 @@ body {
   margin: 0 auto;
   background-color: rgba(255,255,255, 0);
   width: 130px;
-  height: 200px;
-  margin-top: -140px;
+  height: 160px;
+  margin-top: -135px;
   border-right: 1px dashed;
   color: rgba(255, 255, 255, 0.5);
   opacity: 60%;
@@ -245,7 +236,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: -280px;
+  margin-top: -250px;
   margin-left: 380px;
 }
 
@@ -264,7 +255,7 @@ body {
   background-color: rgba(255,255,255,.1);
   width: 1000px;
   height: 38px;
-  margin-top: 100px;
+  margin-top: 70px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
@@ -300,7 +291,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: -8px;
+  margin-top: -7px;
 }
 
 .forecast_time_status_adjust {
@@ -461,41 +452,6 @@ body {
   gap: 25px;
 }
 
-.uv_image {
-  display: flex;
-  flex-direction: row;
-  width: 55px;
-  height: 55px;
-}
-
-.uv_index_text_value {
-  display: flex;
-  flex-direction: row;
-  color: #FFFFFF;
-  opacity: 60%;
-  font-size: 12px;
-}
-
-.index_value {
-  display: flex;
-  flex-direction: row;
-  color: #FFFFFF;
-  font-size: 12px;
-  font-weight: bold;
-  margin-top: -10px;
-}
-
-.uv_index_text_index_value {
-  display: flex;
-  flex-direction: column;
-}
-
-.uv_index_text_index_value_row {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
-
 .atmospheric_image {
   display: flex;
   flex-direction: row;
@@ -518,6 +474,14 @@ body {
   font-size: 12px;
   font-weight: bold;
   margin-top: -10px;
+}
+
+.falling_rising_value {
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  font-size: 12px;
+  margin-top: -14px;
 }
 
 .air_pressure_text_air_value {
@@ -550,6 +514,15 @@ body {
   display: flex;
   flex-direction: row;
   color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+.poor_air_quality_text_status {
+  display: flex;
+  flex-direction: row;
+  color: red;
   font-size: 12px;
   font-weight: bold;
   margin-top: -10px;
@@ -790,7 +763,21 @@ body {
   height: 170px;
 }
 
+.forecast_column1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-220.31deg, #134E43 22.95%, #083A32 82.46%);
+  width: 80px;
+  height: 170px;
+}
+
 .forecast_column:hover {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.forecast_column1:hover {
   border-bottom: 2px solid rgba(255, 255, 255, 0.8);
 }
 
