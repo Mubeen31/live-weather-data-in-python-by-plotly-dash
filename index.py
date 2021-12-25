@@ -2452,7 +2452,4389 @@ def weather_value(n_intervals):
                                      className = 'wind_image_forecast'
                                      ),
                         ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
                     ], className = 'forecast_column1'),
+
+                ], className = 'forecast_row'),
+            ]
+
+    elif time_name >= '00:00:00' and time_name < '12:00:00':
+        if time_name >= '00:00:00' and time_name <= '00:59:59':
+            return [
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column1'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                ], className = 'forecast_row'),
+            ]
+        elif time_name >= '01:00:00' and time_name <= '01:59:59':
+            return [
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column1'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                ], className = 'forecast_row'),
+            ]
+        elif time_name >= '02:00:00' and time_name <= '02:59:59':
+            return [
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column1'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                ], className = 'forecast_row'),
+            ]
+        elif time_name >= '03:00:00' and time_name <= '03:59:59':
+            return [
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column1'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                ], className = 'forecast_row'),
+            ]
+        elif time_name >= '04:00:00' and time_name <= '04:59:59':
+            return [
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column1'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                ], className = 'forecast_row'),
+            ]
+        elif time_name >= '05:00:00' and time_name <= '05:59:59':
+            return [
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column1'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column1'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                ], className = 'forecast_row'),
+            ]
+        elif time_name >= '06:00:00' and time_name <= '06:59:59':
+            return [
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column1'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                ], className = 'forecast_row'),
+            ]
+        elif time_name >= '07:00:00' and time_name <= '07:59:59':
+            return [
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column1'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                ], className = 'forecast_row'),
+            ]
+        elif time_name >= '08:00:00' and time_name <= '08:59:59':
+            return [
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column1'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                ], className = 'forecast_row'),
+            ]
+        elif time_name >= '09:00:00' and time_name <= '09:59:59':
+            return [
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column1'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                ], className = 'forecast_row'),
+            ]
+        elif time_name >= '10:00:00' and time_name <= '10:59:59':
+            return [
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column1'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                ], className = 'forecast_row'),
+            ]
+        elif time_name >= '11:00:00' and time_name <= '11:59:59':
+            return [
+                html.Div([
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
+
+                    html.Div([
+                        html.Div([
+                            html.Img(src = app.get_asset_url('cloud-f.png'),
+                                     className = 'status_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}°C'.format(get_temp),
+                                   className = 'temperature_forecast'
+                                   ),
+                            html.P('Cloudy',
+                                   className = 'status_text_forecast'
+                                   ),
+                        ], className = 'status_column'),
+                        html.Div([
+                            html.Img(src = app.get_asset_url('humidity-f.png'),
+                                     className = 'humidity_image_forecast'
+                                     ),
+                            html.P('{0:,.0f}%'.format(get_humidity),
+                                   className = 'humidity_forecast'
+                                   ),
+                        ], className = 'humidity_forecast_row'),
+                        html.Div([
+                            html.P('{0:,.0f} kph'.format(get_wind_speed),
+                                   className = 'wind_forecast'
+                                   ),
+                            html.Img(src = app.get_asset_url('speed-f.png'),
+                                     className = 'wind_image_forecast'
+                                     ),
+                        ], className = 'wind_forecast_row')
+                    ], className = 'forecast_column'),
 
                     html.Div([
                         html.Div([
@@ -2500,7 +6882,6 @@ def weather_value(n_intervals):
     time_name = now.strftime('%H:%M:%S')
 
     if time_name >= '12:00:00' and time_name < '23:59:59':
-        if time_name >= '22:00:00' and time_name <= '22:59:59':
             return [
                 html.Div([
                     html.P('12:00',
@@ -2541,7 +6922,7 @@ def weather_value(n_intervals):
                            ),
                 ], className = 'time_row'),
             ]
-    elif time_name >= '23:59:59' and time_name < '12:00:00':
+    elif time_name >= '00:00:00' and time_name < '12:00:00':
         return [
                 html.Div([
                     html.P('00:00',
