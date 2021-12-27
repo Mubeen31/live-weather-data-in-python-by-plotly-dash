@@ -304,7 +304,9 @@ def weather_value(n_intervals):
 @app.callback(Output('accu_temp', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    acc_temp = df1['Temperature'].iloc[0]
+    acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
+    df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
+    acc_temp = df1['Temperature'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
@@ -339,7 +341,9 @@ def weather_value(n_intervals):
 @app.callback(Output('accu_hum', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    acc_hum = df1['Humidity'].iloc[0]
+    acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
+    df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
+    acc_hum = df1['Humidity'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
@@ -357,7 +361,7 @@ def weather_value(n_intervals):
                 ], className = 'acc_value_image_row')
             ], className = 'acc_value_image_column'),
         ]
-    elif get_hum != acc_temp:
+    elif get_hum != acc_hum:
         return [
             html.Div([
                 html.P('Humidity', className = 'acc_text'),
@@ -374,7 +378,9 @@ def weather_value(n_intervals):
 @app.callback(Output('accu_dew_point', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    acc_dew_point = df1['Dew Point'].iloc[0]
+    acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
+    df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
+    acc_dew_point = df1['Dew Point'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
@@ -411,7 +417,9 @@ def weather_value(n_intervals):
 @app.callback(Output('accu_atm_pressure', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    acc_atm_pressure = df1['Atmospheric Pressure'].iloc[0]
+    acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
+    df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
+    acc_atm_pressure = df1['Atmospheric Pressure'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
@@ -446,7 +454,9 @@ def weather_value(n_intervals):
 @app.callback(Output('accu_wind_speed', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    acc_wind_speed = df1['Wind Speed'].iloc[0]
+    acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
+    df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
+    acc_wind_speed = df1['Wind Speed'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
@@ -481,7 +491,9 @@ def weather_value(n_intervals):
 @app.callback(Output('accu_wind_direction', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    acc_wind_direction = df1['Wind Direction'].iloc[0]
+    acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
+    df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
+    acc_wind_direction = df1['Wind Direction'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
