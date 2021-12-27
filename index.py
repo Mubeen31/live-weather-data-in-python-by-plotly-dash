@@ -1182,8 +1182,8 @@ def weather_value(n_intervals):
     df['Time'] = df['Date Time'].dt.time
     unique_date = df['Date'].unique()
     filter_led_date = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-    sun_set_time = filter_led_date[(filter_led_date['Photo Resistor LED'] == ' LED ON ')
-                                   & (filter_led_date['Time'] > time(12, 00, 00))]['Time'].head(1).iloc[0]
+    sun_set_time = filter_led_date[(filter_led_date['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
+    # print(sun_set_time)
 
     return [
         html.Div([

@@ -16,14 +16,14 @@ while True:
 
     left_string = r.html.find('div.left', first = True).text
     sp_stri_left = left_string.split()
-    acc_wind_direction = sp_stri_left[9]
-    acc_wind_speed = sp_stri_left[10]
-    acc_humidity = sp_stri_left[17]
+    acc_wind_direction = sp_stri_left[1]
+    acc_wind_speed = sp_stri_left[2]
+    acc_humidity = sp_stri_left[9]
+    acc_dew_point = sp_stri_left[17]
     # print(sp_stri_left)
     right_string = r.html.find('div.right', first = True).text
     sp_stri_right = right_string.split()
-    acc_dew_point = sp_stri_right[2]
-    acc_pressure = sp_stri_right[6]
+    acc_pressure = sp_stri_right[2]
     # print(sp_stri_right)
     # print(acc_temp, acc_wind_direction, acc_wind_speed, acc_humidity, acc_dew_point, acc_pressure)
 
