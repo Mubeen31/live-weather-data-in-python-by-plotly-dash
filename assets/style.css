@@ -551,7 +551,6 @@ body {
   color: #FFFFFF;
   font-size: 12px;
   font-weight: bold;
-  margin-top: -10px;
 }
 
 .poor_air_quality_text_status {
@@ -569,7 +568,6 @@ body {
   color: #00FF00;
   font-size: 14px;
   font-weight: bold;
-  margin-top: -10px;
 }
 
 .air_quality_text_status_row {
@@ -577,6 +575,7 @@ body {
   flex-direction: row;
   gap: 20px;
   align-items: center;
+    margin-top: -20px;
 }
 
 .air_quality_text_quality_value {
@@ -588,6 +587,7 @@ body {
   display: flex;
   flex-direction: row;
   gap: 20px;
+  align-items: center;
 }
 
 .sunrise_image {

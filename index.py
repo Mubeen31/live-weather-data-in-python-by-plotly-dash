@@ -335,7 +335,7 @@ def weather_value(n_intervals):
                 ], className = 'acc_value_image_row')
             ], className = 'acc_value_image_column'),
         ]
-    elif difference_data >= 0.01 and difference_data <= 0.50:
+    elif difference_data >= 0.01 and difference_data <= 0.49:
         return [
             html.Div([
                 html.P('Temperature', className = 'acc_text'),
@@ -436,7 +436,7 @@ def weather_value(n_intervals):
                 ], className = 'acc_value_image_row')
             ], className = 'acc_value_image_column'),
         ]
-    elif difference_data >= 0.01 and difference_data <= 0.50:
+    elif difference_data >= 0.01 and difference_data <= 0.49:
         return [
             html.Div([
                 html.P('Dew Point', className = 'acc_text'),

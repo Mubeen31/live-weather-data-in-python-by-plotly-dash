@@ -9,21 +9,21 @@ s = HTMLSession()
 url = 'https://www.accuweather.com/en/gb/worcester/wr1-3/current-weather/331595'
 
 while True:
-    r = s.get(url, headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36'})
+    r = s.get(url, headers = {'User-Agent': 'Chrome/96.0.4664.110'})
 
     acc_temp = r.html.find('div.display-temp', first = True).text
     # print(acc_temp)
 
     left_string = r.html.find('div.left', first = True).text
     sp_stri_left = left_string.split()
-    acc_wind_direction = sp_stri_left[9]
-    acc_wind_speed = sp_stri_left[10]
-    acc_humidity = sp_stri_left[17]
+    acc_wind_direction = sp_stri_left[1]
+    acc_wind_speed = sp_stri_left[2]
+    acc_humidity = sp_stri_left[9]
+    acc_dew_point = sp_stri_left[17]
     # print(sp_stri_left)
     right_string = r.html.find('div.right', first = True).text
     sp_stri_right = right_string.split()
-    acc_pressure = sp_stri_right[6]
-    acc_dew_point = sp_stri_right[2]
+    acc_pressure = sp_stri_right[2]
     # print(sp_stri_right)
     # print(acc_temp, acc_wind_direction, acc_wind_speed, acc_humidity, acc_dew_point, acc_pressure)
 
