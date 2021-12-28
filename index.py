@@ -8,6 +8,16 @@ import pandas as pd
 from datetime import datetime, date, time
 import time
 
+acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
+df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
+acc_temp = df1['Temperature'].tail(1).iloc[0]
+header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+               'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+df = pd.read_csv('weather_data.csv', names = header_list)
+get_temp = df['Temperature'].tail(1).iloc[0] + 0.75
+difference_data = get_temp - acc_temp
+# print(difference_data)
+
 
 font_awesome = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
 meta_tags = [{"name": "viewport", "content": "width=device-width"}]
@@ -311,8 +321,33 @@ def weather_value(n_intervals):
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0]
+    difference_data = get_temp - acc_temp
 
     if get_temp == acc_temp:
+        return [
+            html.Div([
+                html.P('Temperature', className = 'acc_text'),
+                html.Div([
+                    html.P('{0:,.2f}°C'.format(acc_temp), className = 'acc_value'),
+                    html.Div([
+                        html.I(className = "far fa-check-circle fa-lg"),
+                    ], className = 'acc_image'),
+                ], className = 'acc_value_image_row')
+            ], className = 'acc_value_image_column'),
+        ]
+    elif difference_data >= 0.01 and difference_data <= 0.50:
+        return [
+            html.Div([
+                html.P('Temperature', className = 'acc_text'),
+                html.Div([
+                    html.P('{0:,.2f}°C'.format(acc_temp), className = 'acc_value'),
+                    html.Div([
+                        html.I(className = "far fa-check-circle fa-lg"),
+                    ], className = 'acc_image'),
+                ], className = 'acc_value_image_row')
+            ], className = 'acc_value_image_column'),
+        ]
+    elif difference_data <= -0.01 and difference_data >= -0.50:
         return [
             html.Div([
                 html.P('Temperature', className = 'acc_text'),
@@ -387,8 +422,33 @@ def weather_value(n_intervals):
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_humidity = df['Humidity'].tail(1).iloc[0].astype(float)
     dew_point = get_temp - ((100 - get_humidity) / 5)
+    difference_data = dew_point - acc_dew_point
 
     if dew_point == acc_dew_point:
+        return [
+            html.Div([
+                html.P('Dew Point', className = 'acc_text'),
+                html.Div([
+                    html.P('{0:,.2f}°C'.format(acc_dew_point), className = 'acc_value'),
+                    html.Div([
+                        html.I(className = "far fa-check-circle fa-lg"),
+                    ], className = 'acc_image'),
+                ], className = 'acc_value_image_row')
+            ], className = 'acc_value_image_column'),
+        ]
+    elif difference_data >= 0.01 and difference_data <= 0.50:
+        return [
+            html.Div([
+                html.P('Dew Point', className = 'acc_text'),
+                html.Div([
+                    html.P('{0:,.2f}°C'.format(acc_dew_point), className = 'acc_value'),
+                    html.Div([
+                        html.I(className = "far fa-check-circle fa-lg"),
+                    ], className = 'acc_image'),
+                ], className = 'acc_value_image_row')
+            ], className = 'acc_value_image_column'),
+        ]
+    elif difference_data <= -0.01 and difference_data >= -0.50:
         return [
             html.Div([
                 html.P('Dew Point', className = 'acc_text'),
@@ -1145,18 +1205,18 @@ def weather_value(n_intervals):
     day = now.strftime('%a')
     date = now.strftime('%d/%m/%Y')
     time_name = now.strftime('%H:%M:%S')
-    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data.csv', names = header_list)
-    df['Date Time'] = pd.to_datetime(df['Date Time'])
-    df['Date'] = df['Date Time'].dt.date
-    df['Date'] = pd.to_datetime(df['Date'])
-    df['Time'] = df['Date Time'].dt.time
-    unique_date = df['Date'].unique()
-    filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
-    sun_rise_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
-    filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-    sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].tail(1).iloc[0]
+    # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    # df = pd.read_csv('weather_data.csv', names = header_list)
+    # df['Date Time'] = pd.to_datetime(df['Date Time'])
+    # df['Date'] = df['Date Time'].dt.date
+    # df['Date'] = pd.to_datetime(df['Date'])
+    # df['Time'] = df['Date Time'].dt.time
+    # unique_date = df['Date'].unique()
+    # filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
+    # sun_rise_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
+    # filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
+    # sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].tail(1).iloc[0]
 
     if time_name >= '00:00:00' and time_name <= '08:10:00':
         return [
@@ -1167,12 +1227,13 @@ def weather_value(n_intervals):
                 html.P('SUNRISE',
                        className = 'sunrise_value'
                        ),
-                html.P(sun_rise_time_2,
+                html.P(
+                       # sun_rise_time_2,
                        className = 'sunrise_text_value'
                        ),
             ], className = 'sunrise_column'),
         ]
-    elif time_name > '08:10:00' and time_name < '00:00:00':
+    elif time_name > '08:10:00' and time_name <= '23:59:59':
         return [
             html.Div([
                 html.Img(src = app.get_asset_url('sunrise.png'),
@@ -1181,7 +1242,8 @@ def weather_value(n_intervals):
                 html.P('SUNRISE',
                        className = 'sunrise_value'
                        ),
-                html.P(sun_rise_time_1,
+                html.P(
+                       # sun_rise_time_1,
                        className = 'sunrise_text_value'
                        ),
             ], className = 'sunrise_column'),
@@ -1195,18 +1257,18 @@ def weather_value(n_intervals):
     day = now.strftime('%a')
     date = now.strftime('%d/%m/%Y')
     time_name = now.strftime('%H:%M:%S')
-    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data.csv', names = header_list)
-    df['Date Time'] = pd.to_datetime(df['Date Time'])
-    df['Date'] = df['Date Time'].dt.date
-    df['Date'] = pd.to_datetime(df['Date'])
-    df['Time'] = df['Date Time'].dt.time
-    unique_date = df['Date'].unique()
-    filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
-    sun_set_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
-    filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-    sun_set_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
+    # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    # df = pd.read_csv('weather_data.csv', names = header_list)
+    # df['Date Time'] = pd.to_datetime(df['Date Time'])
+    # df['Date'] = df['Date Time'].dt.date
+    # df['Date'] = pd.to_datetime(df['Date'])
+    # df['Time'] = df['Date Time'].dt.time
+    # unique_date = df['Date'].unique()
+    # filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
+    # sun_set_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
+    # filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
+    # sun_set_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
 
     if time_name >= '00:00:00' and time_name <= '16:00:00':
         return [
@@ -1217,12 +1279,13 @@ def weather_value(n_intervals):
                 html.P('SUNSET',
                        className = 'sunset_value'
                        ),
-                html.P(sun_set_time_2,
+                html.P(
+                       # sun_set_time_2,
                        className = 'sunset_text_value'
                        ),
             ], className = 'sunset_column'),
         ]
-    elif time_name > '16:00:00' and time_name < '00:00:00':
+    elif time_name > '16:00:00' and time_name <= '23:59:59':
         return [
             html.Div([
                 html.Img(src = app.get_asset_url('sunset.png'),
@@ -1231,7 +1294,8 @@ def weather_value(n_intervals):
                 html.P('SUNSET',
                        className = 'sunset_value'
                        ),
-                html.P(sun_set_time_1,
+                html.P(
+                       # sun_set_time_1,
                        className = 'sunset_text_value'
                        ),
             ], className = 'sunset_column'),
