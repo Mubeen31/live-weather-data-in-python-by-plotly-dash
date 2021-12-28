@@ -132,7 +132,7 @@ app.layout = html.Div([
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     header_list = ['Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
@@ -234,7 +234,7 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
     get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
@@ -308,7 +308,7 @@ def weather_value(n_intervals):
     df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     acc_temp = df1['Temperature'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0]
 
@@ -345,7 +345,7 @@ def weather_value(n_intervals):
     df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     acc_hum = df1['Humidity'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_hum = df['Humidity'].tail(1).iloc[0]
 
@@ -382,7 +382,7 @@ def weather_value(n_intervals):
     df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     acc_dew_point = df1['Dew Point'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_humidity = df['Humidity'].tail(1).iloc[0].astype(float)
@@ -421,7 +421,7 @@ def weather_value(n_intervals):
     df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     acc_atm_pressure = df1['Atmospheric Pressure'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_atm_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
 
@@ -458,7 +458,7 @@ def weather_value(n_intervals):
     df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     acc_wind_speed = df1['Wind Speed'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
@@ -495,22 +495,23 @@ def weather_value(n_intervals):
     df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     acc_wind_direction = df1['Wind Direction'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
-    get_wind_direction = df['Wind Speed KPH'].tail(1).iloc[0]
-    degree_value = [112.5, 67.5, 90, 157.5, 135, 202.5, 180, 22.5, 45, 247.5, 225, 337.5, 0, 292.5, 315, 270]
-    direction_value = ["ESE", "ENE", "E", "SSE", "SE", "SSW", "S", "NNE", "NE", "WSW", "SW", "NNW", "N", "WNW", "NW",
-                       "W"]
-    dictionary_degree_direction = {'Degree': degree_value, 'Direction': direction_value}
-    df2 = pd.DataFrame(dictionary_degree_direction)
-    df2['Degree'] = df2['Degree'].astype(float)
-    df2['Direction'] = df2['Direction'].astype(str)
-    merge_df = pd.merge(left = df,
-                        right = df2,
-                        how = 'inner',
-                        left_on = ['Wind Direction'],
-                        right_on = ['Degree'])
-    get_wind_direction = merge_df['Direction'].iloc[0]
+
+    # degree_value = [112.5, 67.5, 90, 157.5, 135, 202.5, 180, 22.5, 45, 247.5, 225, 337.5, 0, 292.5, 315, 270]
+    # direction_value = ["ESE", "ENE", "E", "SSE", "SE", "SSW", "S", "NNE", "NE", "WSW", "SW", "NNW", "N", "WNW", "NW",
+    #                    "W"]
+    # dictionary_degree_direction = {'Degree': degree_value, 'Direction': direction_value}
+    # df2 = pd.DataFrame(dictionary_degree_direction)
+    # df2['Degree'] = df2['Degree'].astype(float)
+    # df2['Direction'] = df2['Direction'].astype(str)
+    # merge_df = pd.merge(left = df,
+    #                     right = df2,
+    #                     how = 'inner',
+    #                     left_on = ['Wind Direction'],
+    #                     right_on = ['Degree'])
+
+    get_wind_direction = df['Wind Direction'].tail(1).iloc[0]
 
 
     if get_wind_direction == acc_wind_direction:
@@ -543,7 +544,7 @@ def weather_value(n_intervals):
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
     header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     now = datetime.now()
@@ -567,7 +568,7 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     convert_c_t_fahrenheit = (get_temp * 9/5) + 32
@@ -782,7 +783,7 @@ def weather_value(n_intervals):
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
     header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
@@ -841,7 +842,7 @@ def weather_value(n_intervals):
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
     header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_temp_add = df['Temperature'].tail(1).iloc[0].astype(float) + 3.00
@@ -870,7 +871,7 @@ def weather_value(n_intervals):
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
     header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_temp_add = df['Temperature'].tail(1).iloc[0].astype(float) + 3.00
@@ -896,7 +897,7 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     header_list = ['Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_humidity = df['Humidity'].tail(1).iloc[0].astype(float)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
@@ -992,7 +993,7 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
     convert_pa_to_mb = get_air_pressure / 100
@@ -1046,7 +1047,7 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_air_quality = df['CO2 Level'].tail(1).iloc[0].astype(float)
 
@@ -1145,7 +1146,7 @@ def weather_value(n_intervals):
     date = now.strftime('%d/%m/%Y')
     time_name = now.strftime('%H:%M:%S')
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     df['Date Time'] = pd.to_datetime(df['Date Time'])
     df['Date'] = df['Date Time'].dt.date
@@ -1195,7 +1196,7 @@ def weather_value(n_intervals):
     date = now.strftime('%d/%m/%Y')
     time_name = now.strftime('%H:%M:%S')
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     df['Date Time'] = pd.to_datetime(df['Date Time'])
     df['Date'] = df['Date Time'].dt.date
@@ -1241,7 +1242,7 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def update_graph_value(n_intervals):
     header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
@@ -1419,7 +1420,7 @@ def update_graph_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
@@ -1438,13 +1439,26 @@ def weather_value(n_intervals):
 @app.callback(Output('wind_direction_value', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
-    get_wind_direction = df['Wind Direction'].tail(1).iloc[0].astype(float)
 
-    if get_wind_direction == 112.5:
-        return [
+    # degree_value = [112.5, 67.5, 90, 157.5, 135, 202.5, 180, 22.5, 45, 247.5, 225, 337.5, 0, 292.5, 315, 270]
+    # direction_value = ["ESE", "ENE", "E", "SSE", "SE", "SSW", "S", "NNE", "NE", "WSW", "SW", "NNW", "N", "WNW", "NW",
+    #                    "W"]
+    # dictionary_degree_direction = {'Degree': degree_value, 'Direction': direction_value}
+    # df2 = pd.DataFrame(dictionary_degree_direction)
+    # df2['Degree'] = df2['Degree'].astype(float)
+    # df2['Direction'] = df2['Direction'].astype(str)
+    # merge_df = pd.merge(left = df,
+    #                     right = df2,
+    #                     how = 'inner',
+    #                     left_on = ['Wind Direction'],
+    #                     right_on = ['Degree'])
+
+    get_wind_direction = df['Wind Direction'].tail(1).iloc[0]
+
+    return [
             html.Div([
                 html.Img(src = app.get_asset_url('compass.png'),
                          className = 'compass_image'
@@ -1453,247 +1467,7 @@ def weather_value(n_intervals):
                     html.P('WIND DIRECTION',
                            className = 'w_d_value'
                            ),
-                    html.P('ESE',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 67.5:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('ENE',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 90:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('E',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 157.5:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('SSE',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 135:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('SE',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 202.5:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('SSW',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 180:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('S',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 22.5:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('NNE',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 45:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('NE',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 247.5:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('WSW',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 225:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('SW',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 337.5:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('NNW',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 0:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('N',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 292.5:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('WNW',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 315:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('NW',
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
-    elif get_wind_direction == 270:
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P('W',
+                    html.P(get_wind_direction,
                            className = 'w_d_number_value'
                            ),
                 ], className = 'w_d_number_value_row'),
