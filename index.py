@@ -60,46 +60,80 @@ app.layout = html.Div([
 
     html.Div([
         html.Div([
+
             html.Div(id = 'background_image_container',
                      className = 'background_image'),
+
             html.Div([
                 html.Div([
-                    html.P('AccuWeather Data', className = 'acc_data_text'),
+
                     html.Div([
-                        html.Div(id = 'accu_temp'),
-                        html.Div(id = 'accu_hum'),
-                    ], className = 'accu_temp_hum_row'),
-                    html.Hr(className = 'acc_bottom_border'),
+                        html.Div([
+                            html.Div(id = 'time_value')
+                        ], className = 'current_weather_time_value'),
+                        html.Div([
+                            html.Div([
+                                html.Div(id = 'forecast_text')
+                            ], className = 'current_weather_time_value'),
+                            html.Div([
+                                html.Div([
+                                    html.Div(id = 'forecast_image')
+                                ], className = 'current_weather_time_value'),
+                                html.Div([
+                                    html.Div(id = 'forecast_value')
+                                ], className = 'current_weather_time_value'),
+                            ], className = 'forecast_image_value_row'),
+                                html.Div([
+                                    html.Div(id = 'forecast_time')
+                                ], className = 'current_weather_time_value'),
+                        ], className = 'forecast_column')
+                    ], className = 'current_weather_time_value_forecast_row'),
+
                     html.Div([
-                        html.Div(id = 'accu_dew_point'),
-                        html.Div(id = 'accu_atm_pressure'),
-                    ], className = 'accu_temp_hum_row'),
-                    html.Hr(className = 'acc_bottom_border'),
+                        html.Div(id = 'status_temperature',
+                                 className = 'status_temperature_value'),
+                    ], className = 'status_temperature_value_row'),
+
                     html.Div([
-                        html.Div(id = 'accu_wind_speed'),
-                        html.Div(id = 'accu_wind_direction'),
-                    ], className = 'accu_temp_hum_row'),
-                ], className = 'accu_column')
-            ], className = 'accu_weather_card_background_color'),
-        ], className = 'accu_weather_card_background_color_row'),
+                        html.Div(id = 'first_sentence',
+                                 className = 'status_paragraph_value'),
+                        html.Div(id = 'second_sentence',
+                                 className = 'status_paragraph_value'),
+                        html.Div(id = 'third_sentence',
+                                 className = 'status_paragraph_value'),
+                    ], className = 'sentence_row'),
+
+                    html.Div([
+                        html.Div(id = 'numeric_value',
+                                 className = 'status_numeric_value'),
+                    ], className = 'status_numeric_value_row')
+
+                ], className = 'background_image_current_weather_time_column'),
+            ], className = 'background_image_current_weather_time_content_row')
+
+        ], className = 'background_image_current_weather_time_column'),
+
         html.Div([
-            html.Div(id = 'time_value')
-        ], className = 'current_weather_time_value')
-    ], className = 'background_image_current_weather_time_column'),
+            html.Div([
+                html.P('AccuWeather Data', className = 'acc_data_text'),
+                html.Div([
+                    html.Div(id = 'accu_temp'),
+                    html.Div(id = 'accu_hum'),
+                ], className = 'accu_temp_hum_row'),
+                html.Hr(className = 'acc_bottom_border'),
+                html.Div([
+                    html.Div(id = 'accu_dew_point'),
+                    html.Div(id = 'accu_atm_pressure'),
+                ], className = 'accu_temp_hum_row'),
+                html.Hr(className = 'acc_bottom_border'),
+                html.Div([
+                    html.Div(id = 'accu_wind_speed'),
+                    html.Div(id = 'accu_wind_direction'),
+                ], className = 'accu_temp_hum_row'),
+            ], className = 'accu_column')
+        ], className = 'accu_weather_card_background_color'),
+    ], className = 'accu_weather_card_background_color_row'),
 
-    html.Div(id = 'status_temperature',
-             className = 'status_temperature_value'),
-    html.Div([
-        html.Div(id = 'first_sentence',
-                 className = 'status_paragraph_value'),
-        html.Div(id = 'second_sentence',
-                 className = 'status_paragraph_value'),
-        html.Div(id = 'third_sentence',
-                 className = 'status_paragraph_value'),
-    ], className = 'sentence_row'),
-
-    html.Div(id = 'numeric_value',
-             className = 'status_numeric_value'),
 
     html.Div(className = 'background_color_more_details'),
     html.Div([
@@ -621,6 +655,101 @@ def weather_value(n_intervals):
                    className = 'current_time'
                    ),
         ], className = 'current_weather_time'),
+    ]
+
+
+@app.callback(Output('forecast_text', 'children'),
+              [Input('update_time', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
+    now = datetime.now()
+    day = now.strftime('%a')
+    date = now.strftime('%d/%m/%Y')
+    time = now.strftime('%H:%M:%S')
+
+    return [
+            html.Div([
+                html.P('FORECAST'),
+            ], className = 'current_weather'),
+    ]
+
+
+@app.callback(Output('forecast_image', 'children'),
+              [Input('update_time', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
+    now = datetime.now()
+    day = now.strftime('%a')
+    date = now.strftime('%d/%m/%Y')
+    time = now.strftime('%H:%M:%S')
+
+    return [
+        html.Img(src = app.get_asset_url('rain.png'),
+                 className = 'forecast_image'),
+    ]
+
+
+@app.callback(Output('forecast_value', 'children'),
+              [Input('update_time', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
+    now = datetime.now()
+    day = now.strftime('%a')
+    date = now.strftime('%d/%m/%Y')
+    time = now.strftime('%H:%M:%S')
+
+    return [
+            html.P(time,
+                   className = 'predict_forecast_value'
+                   ),
+    ]
+
+
+@app.callback(Output('forecast_time', 'children'),
+              [Input('update_time', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
+    now = datetime.now()
+    day = now.strftime('%a')
+    date = now.strftime('%d/%m/%Y')
+    time_name = now.strftime('%H:%M:%S')
+
+    if time_name > '13:00:00' and time_name <= '14:00:00':
+        return [
+            html.P('14:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+
+    elif time_name > '14:00:00' and time_name <= '15:00:00':
+        return [
+            html.P('15:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '15:00:00' and time_name <= '16:00:00':
+        return [
+            html.P('16:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '16:00:00' and time_name <= '17:00:00':
+        return [
+            html.P('17:00',
+                   className = 'forecast_time_value'
+                   ),
     ]
 
 
@@ -1205,20 +1334,20 @@ def weather_value(n_intervals):
     day = now.strftime('%a')
     date = now.strftime('%d/%m/%Y')
     time_name = now.strftime('%H:%M:%S')
-    # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-    #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    # df = pd.read_csv('weather_data.csv', names = header_list)
-    # df['Date Time'] = pd.to_datetime(df['Date Time'])
-    # df['Date'] = df['Date Time'].dt.date
-    # df['Date'] = pd.to_datetime(df['Date'])
-    # df['Time'] = df['Date Time'].dt.time
-    # unique_date = df['Date'].unique()
-    # filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
-    # sun_rise_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
-    # filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-    # sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].tail(1).iloc[0]
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    df['Date Time'] = pd.to_datetime(df['Date Time'])
+    df['Date'] = df['Date Time'].dt.date
+    df['Date'] = pd.to_datetime(df['Date'])
+    df['Time'] = df['Date Time'].dt.time
+    unique_date = df['Date'].unique()
+    filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
+    sun_rise_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
+    filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
+    sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].tail(1).iloc[0]
 
-    if time_name >= '00:00:00' and time_name <= '08:10:00':
+    if time_name >= '00:00:00' and time_name <= '08:20:00':
         return [
             html.Div([
                 html.Img(src = app.get_asset_url('sunrise.png'),
@@ -1228,12 +1357,12 @@ def weather_value(n_intervals):
                        className = 'sunrise_value'
                        ),
                 html.P(
-                       # sun_rise_time_2,
+                       sun_rise_time_2,
                        className = 'sunrise_text_value'
                        ),
             ], className = 'sunrise_column'),
         ]
-    elif time_name > '08:10:00' and time_name <= '23:59:59':
+    elif time_name > '08:20:00' and time_name <= '23:59:59':
         return [
             html.Div([
                 html.Img(src = app.get_asset_url('sunrise.png'),
@@ -1243,7 +1372,7 @@ def weather_value(n_intervals):
                        className = 'sunrise_value'
                        ),
                 html.P(
-                       # sun_rise_time_1,
+                       sun_rise_time_1,
                        className = 'sunrise_text_value'
                        ),
             ], className = 'sunrise_column'),
@@ -1257,20 +1386,20 @@ def weather_value(n_intervals):
     day = now.strftime('%a')
     date = now.strftime('%d/%m/%Y')
     time_name = now.strftime('%H:%M:%S')
-    # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-    #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    # df = pd.read_csv('weather_data.csv', names = header_list)
-    # df['Date Time'] = pd.to_datetime(df['Date Time'])
-    # df['Date'] = df['Date Time'].dt.date
-    # df['Date'] = pd.to_datetime(df['Date'])
-    # df['Time'] = df['Date Time'].dt.time
-    # unique_date = df['Date'].unique()
-    # filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
-    # sun_set_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
-    # filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-    # sun_set_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    df['Date Time'] = pd.to_datetime(df['Date Time'])
+    df['Date'] = df['Date Time'].dt.date
+    df['Date'] = pd.to_datetime(df['Date'])
+    df['Time'] = df['Date Time'].dt.time
+    unique_date = df['Date'].unique()
+    filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
+    sun_set_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
+    filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
+    sun_set_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
 
-    if time_name >= '00:00:00' and time_name <= '16:00:00':
+    if time_name >= '00:00:00' and time_name <= '16:30:00':
         return [
             html.Div([
                 html.Img(src = app.get_asset_url('sunset.png'),
@@ -1280,12 +1409,12 @@ def weather_value(n_intervals):
                        className = 'sunset_value'
                        ),
                 html.P(
-                       # sun_set_time_2,
+                       sun_set_time_2,
                        className = 'sunset_text_value'
                        ),
             ], className = 'sunset_column'),
         ]
-    elif time_name > '16:00:00' and time_name <= '23:59:59':
+    elif time_name > '16:30:00' and time_name <= '23:59:59':
         return [
             html.Div([
                 html.Img(src = app.get_asset_url('sunset.png'),
@@ -1295,7 +1424,7 @@ def weather_value(n_intervals):
                        className = 'sunset_value'
                        ),
                 html.P(
-                       # sun_set_time_1,
+                       sun_set_time_1,
                        className = 'sunset_text_value'
                        ),
             ], className = 'sunset_column'),
