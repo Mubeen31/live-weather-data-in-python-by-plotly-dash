@@ -7,6 +7,10 @@ from dash.exceptions import PreventUpdate
 import pandas as pd
 from datetime import datetime, date, time
 import time
+import numpy as np
+from datetime import datetime, date, time
+from sklearn import linear_model
+from sklearn.metrics import accuracy_score
 
 acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
 df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
@@ -35,6 +39,12 @@ app.layout = html.Div([
     html.Div([
         dcc.Interval(id = 'update_time',
                      interval = 1000,
+                     n_intervals = 0),
+    ]),
+
+    html.Div([
+        dcc.Interval(id = 'forecast_update_time',
+                     interval = 600000,
                      n_intervals = 0),
     ]),
 
@@ -83,9 +93,9 @@ app.layout = html.Div([
                                     html.Div(id = 'forecast_value')
                                 ], className = 'current_weather_time_value'),
                             ], className = 'forecast_image_value_row'),
-                                html.Div([
-                                    html.Div(id = 'forecast_time')
-                                ], className = 'current_weather_time_value'),
+                            html.Div([
+                                html.Div(id = 'forecast_time')
+                            ], className = 'current_weather_time_value'),
                         ], className = 'forecast_column')
                     ], className = 'current_weather_time_value_forecast_row'),
 
@@ -134,7 +144,6 @@ app.layout = html.Div([
         ], className = 'accu_weather_card_background_color'),
     ], className = 'accu_weather_card_background_color_row'),
 
-
     html.Div(className = 'background_color_more_details'),
     html.Div([
         html.Div(className = 'more_details_bottom_border'),
@@ -175,7 +184,7 @@ app.layout = html.Div([
 @app.callback(Output('title_image_value', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
@@ -637,7 +646,7 @@ def weather_value(n_intervals):
 @app.callback(Output('time_value', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
@@ -661,7 +670,7 @@ def weather_value(n_intervals):
 @app.callback(Output('forecast_text', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
@@ -680,7 +689,7 @@ def weather_value(n_intervals):
 @app.callback(Output('forecast_image', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
@@ -696,28 +705,35 @@ def weather_value(n_intervals):
 
 
 @app.callback(Output('forecast_value', 'children'),
-              [Input('update_time', 'n_intervals')])
+              [Input('forecast_update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
-    get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
+    df2 = df[['Humidity', 'Temperature']].tail(1194)
+    df_x = df2.drop(['Temperature'], axis = 1)
+    df_y = df2['Temperature']
+    lr = linear_model.LinearRegression()
+    lr.fit(df_x, df_y)
+    y_predict = lr.predict(df_x)
+    average_predicted_temperature = np.average(y_predict)
+
     now = datetime.now()
     day = now.strftime('%a')
     date = now.strftime('%d/%m/%Y')
-    time = now.strftime('%H:%M:%S')
+    time_name = now.strftime('%H:%M:%S')
 
     return [
-            html.P(time,
+            html.P('{0:,.0f}°C'.format(average_predicted_temperature),
                    className = 'predict_forecast_value'
                    ),
-    ]
+        ]
 
 
 @app.callback(Output('forecast_time', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
@@ -751,12 +767,132 @@ def weather_value(n_intervals):
                    className = 'forecast_time_value'
                    ),
     ]
+    elif time_name > '17:00:00' and time_name <= '18:00:00':
+        return [
+            html.P('18:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '18:00:00' and time_name <= '19:00:00':
+        return [
+            html.P('19:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '19:00:00' and time_name <= '20:00:00':
+        return [
+            html.P('20:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '20:00:00' and time_name <= '21:00:00':
+        return [
+            html.P('21:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '21:00:00' and time_name <= '22:00:00':
+        return [
+            html.P('22:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '22:00:00' and time_name <= '23:00:00':
+        return [
+            html.P('23:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '23:00:00' and time_name <= '23:59:59':
+        return [
+            html.P('00:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name >= '00:00:00' and time_name <= '01:00:00':
+        return [
+            html.P('01:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '01:00:00' and time_name <= '02:00:00':
+        return [
+            html.P('02:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '02:00:00' and time_name <= '03:00:00':
+        return [
+            html.P('03:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '03:00:00' and time_name <= '04:00:00':
+        return [
+            html.P('04:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '04:00:00' and time_name <= '05:00:00':
+        return [
+            html.P('05:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '05:00:00' and time_name <= '06:00:00':
+        return [
+            html.P('06:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '06:00:00' and time_name <= '07:00:00':
+        return [
+            html.P('07:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '07:00:00' and time_name <= '08:00:00':
+        return [
+            html.P('08:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '08:00:00' and time_name <= '09:00:00':
+        return [
+            html.P('09:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '09:00:00' and time_name <= '10:00:00':
+        return [
+            html.P('10:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '10:00:00' and time_name <= '11:00:00':
+        return [
+            html.P('11:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '11:00:00' and time_name <= '12:00:00':
+        return [
+            html.P('12:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
+    elif time_name > '12:00:00' and time_name <= '13:00:00':
+        return [
+            html.P('13:00',
+                   className = 'forecast_time_value'
+                   ),
+    ]
 
 
 @app.callback(Output('status_temperature', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
@@ -971,7 +1107,7 @@ def weather_value(n_intervals):
 @app.callback(Output('first_sentence', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
@@ -1030,7 +1166,7 @@ def weather_value(n_intervals):
 @app.callback(Output('second_sentence', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
@@ -1059,7 +1195,7 @@ def weather_value(n_intervals):
 @app.callback(Output('third_sentence', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
@@ -1085,7 +1221,7 @@ def weather_value(n_intervals):
 @app.callback(Output('numeric_value', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_humidity = df['Humidity'].tail(1).iloc[0].astype(float)
@@ -1096,8 +1232,8 @@ def weather_value(n_intervals):
     get_co2_level = df['CO2 Level'].tail(1).iloc[0].astype(float)
     get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
     convert_pa_to_mb = get_air_pressure / 100
-    df['Time'] = pd.to_datetime(df['Time'])
-    df['Date'] = df['Time'].dt.date
+    df['Date Time'] = pd.to_datetime(df['Date Time'])
+    df['Date'] = df['Date Time'].dt.date
     df['Date'] = pd.to_datetime(df['Date'])
     unique_date = df['Date'].unique()
     wind_gusts = df[df['Date'] == unique_date[-1]]['Wind Speed KPH'].max()
@@ -1181,7 +1317,7 @@ def weather_value(n_intervals):
 @app.callback(Output('air_pressure', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
@@ -1235,7 +1371,7 @@ def weather_value(n_intervals):
 @app.callback(Output('air_quality', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_air_quality = df['CO2 Level'].tail(1).iloc[0].astype(float)
@@ -1345,7 +1481,7 @@ def weather_value(n_intervals):
     filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
     sun_rise_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
     filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-    sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].tail(1).iloc[0]
+    sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
 
     if time_name >= '00:00:00' and time_name <= '08:20:00':
         return [
@@ -1612,7 +1748,7 @@ def update_graph_value(n_intervals):
 @app.callback(Output('wind_speed_value', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
