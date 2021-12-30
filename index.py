@@ -43,12 +43,6 @@ app.layout = html.Div([
     ]),
 
     html.Div([
-        dcc.Interval(id = 'forecast_update_time',
-                     interval = 600000,
-                     n_intervals = 0),
-    ]),
-
-    html.Div([
         html.Div([
             html.Div([
                 html.Div([
@@ -144,39 +138,49 @@ app.layout = html.Div([
         ], className = 'accu_weather_card_background_color'),
     ], className = 'accu_weather_card_background_color_row'),
 
-    html.Div(className = 'background_color_more_details'),
     html.Div([
+        html.P('More Details',
+               className = 'more_details'),
         html.Div(className = 'more_details_bottom_border'),
-    ], className = 'more_details_bottom_border_row'),
-    html.P('More Details',
-           className = 'more_details'),
-
-    html.Div(className = 'background_color_more_details_card'),
-    html.Div(id = 'air_pressure',
-             className = 'air_pressure_value'),
-    html.Div(id = 'air_quality',
-             className = 'air_quality_value'),
+    ], className = 'background_color_more_details'),
 
     html.Div([
-        html.Div(id = 'sun_rise_status'),
-        html.Img(src = app.get_asset_url('climate.png'),
-                 className = 'circle_image'),
-        html.Div(id = 'sun_set_status'),
-    ], className = 'sun_rise_set_status_value'),
-
-    html.Div(className = 'background_sun_rise_set_right_border'),
 
     html.Div([
-        dcc.Graph(id = 'wind_speed',
-                  animate = False,
-                  config = {'displayModeBar': False},
-                  className = 'wind_speed_graph'),
-        html.Div(id = 'wind_speed_value',
-                 className = 'wind_speed_numeric_value')
-    ], className = 'wind_speed_numeric_value_column'),
+        html.Div([
+            html.Div([
+                html.Div(id = 'air_pressure',
+                         className = 'air_pressure_value'),
+                html.Div(id = 'air_quality',
+                         className = 'air_quality_value'),
+            ], className = 'atmospheric_pressure_quality_value_column'),
+            html.Div([
+                html.Div(id = 'sun_rise_status'),
+                html.Img(src = app.get_asset_url('climate.png'),
+                         className = 'circle_image'),
+                html.Div(id = 'sun_set_status'),
+            ], className = 'sun_rise_set_status_value'),
+        ], className = 'atmospheric_pressure_quality_value_sun_row'),
+        ], className = 'background_color_more_details_card1'),
 
-    html.Div(id = 'wind_direction_value',
-             className = 'wind_speed_direction_numeric_value'),
+html.Div([
+        html.Div([
+            html.Div([
+                dcc.Graph(id = 'wind_speed',
+                          animate = False,
+                          config = {'displayModeBar': False},
+                          className = 'wind_speed_graph'),
+                html.Div(id = 'wind_speed_value',
+                         className = 'wind_speed_numeric_value')
+            ], className = 'wind_speed_numeric_value_column'),
+
+            html.Div(id = 'wind_direction_value',
+                     className = 'wind_speed_direction_numeric_value'),
+        ], className = 'wind_speed_direction_numeric_value_row')
+], className = 'background_color_more_details_card2'),
+
+], className = 'content_row')
+
 
 ])
 
@@ -705,7 +709,7 @@ def weather_value(n_intervals):
 
 
 @app.callback(Output('forecast_value', 'children'),
-              [Input('forecast_update_time', 'n_intervals')])
+              [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
@@ -717,11 +721,6 @@ def weather_value(n_intervals):
     lr.fit(df_x, df_y)
     y_predict = lr.predict(df_x)
     average_predicted_temperature = np.average(y_predict)
-
-    now = datetime.now()
-    day = now.strftime('%a')
-    date = now.strftime('%d/%m/%Y')
-    time_name = now.strftime('%H:%M:%S')
 
     return [
             html.P('{0:,.0f}°C'.format(average_predicted_temperature),
@@ -1169,25 +1168,23 @@ def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
-    get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
-    get_temp_add = df['Temperature'].tail(1).iloc[0].astype(float) + 3.00
-    get_temp_subtract = df['Temperature'].tail(1).iloc[0].astype(float) - 3.00
-    get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
-    get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
-    get_led_on = df['Photo Resistor LED'].tail(1).iloc[0]
-    now = datetime.now()
-    day = now.strftime('%a')
-    date = now.strftime('%d/%m/%Y')
-    time = now.strftime('%H:%M:%S')
+    get_temp = df['Temperature'].tail(1).iloc[0]
+    df2 = df[['Humidity', 'Temperature']].tail(1194)
+    df_x = df2.drop(['Temperature'], axis = 1)
+    df_y = df2['Temperature']
+    lr = linear_model.LinearRegression()
+    lr.fit(df_x, df_y)
+    y_predict = lr.predict(df_x)
+    average_predicted_temperature = np.max(y_predict)
 
-    if get_temp >= 1.00:
+    if get_temp <= average_predicted_temperature:
         return [
-            html.P('The high will be ' + '{0:,.0f}°C'.format(get_temp_add) + '.',
+            html.P('The high will be ' + '{0:,.0f}°C'.format(average_predicted_temperature) + '.',
                    className = 'status_paragraph_format'),
         ]
-    if get_temp <= 0.00:
+    if get_temp >= average_predicted_temperature:
         return [
-            html.P('The low will be ' + '{0:,.0f}°C'.format(get_temp_subtract) + '.',
+            html.P('The low will be ' + '{0:,.0f}°C'.format(average_predicted_temperature) + '.',
                    className = 'status_paragraph_format'),
         ]
 
@@ -1481,7 +1478,7 @@ def weather_value(n_intervals):
     filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
     sun_rise_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
     filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-    sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
+    sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].tail(1).iloc[0]
 
     if time_name >= '00:00:00' and time_name <= '08:20:00':
         return [
