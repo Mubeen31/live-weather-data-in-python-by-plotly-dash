@@ -24,6 +24,24 @@ import sqlalchemy
 # engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
 # df = pd.read_sql_table('datatable', engine)
 # df1 = df.tail(1)
+# now = datetime.now()
+# day = now.strftime('%a')
+# date = now.strftime('%d/%m/%Y')
+# time_name = now.strftime('%H:%M:%S')
+# header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+#                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+# df = pd.read_csv('weather_data.csv', names = header_list)
+# df['Date Time'] = pd.to_datetime(df['Date Time'])
+# df['Date'] = df['Date Time'].dt.date
+# df['Date'] = pd.to_datetime(df['Date'])
+# df['Time'] = df['Date Time'].dt.time
+# unique_date = df['Date'].unique()
+# filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
+# sun_set_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
+# filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
+# sun_set_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
+# print(unique_date)
+
 
 
 font_awesome = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
@@ -1476,17 +1494,18 @@ def weather_value(n_intervals):
     day = now.strftime('%a')
     date = now.strftime('%d/%m/%Y')
     time_name = now.strftime('%H:%M:%S')
-    # engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    # df = pd.read_sql_table('datatable', engine)
-    # df['Date Time'] = pd.to_datetime(df['Date Time'])
-    # df['Date'] = df['Date Time'].dt.date
-    # df['Date'] = pd.to_datetime(df['Date'])
-    # df['Time'] = df['Date Time'].dt.time
-    # unique_date = df['Date'].unique()
-    # filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
-    # sun_rise_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
-    # filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-    # sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].tail(1).iloc[0]
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    df['Date Time'] = pd.to_datetime(df['Date Time'])
+    df['Date'] = df['Date Time'].dt.date
+    df['Date'] = pd.to_datetime(df['Date'])
+    df['Time'] = df['Date Time'].dt.time
+    unique_date = df['Date'].unique()
+    filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
+    sun_rise_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
+    filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
+    sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].tail(1).iloc[0]
 
     if time_name >= '00:00:00' and time_name <= '08:20:00':
         return [
@@ -1498,7 +1517,7 @@ def weather_value(n_intervals):
                        className = 'sunrise_value'
                        ),
                 html.P(
-                       # sun_rise_time_2,
+                       sun_rise_time_2,
                        className = 'sunrise_text_value'
                        ),
             ], className = 'sunrise_column'),
@@ -1513,7 +1532,7 @@ def weather_value(n_intervals):
                        className = 'sunrise_value'
                        ),
                 html.P(
-                       # sun_rise_time_1,
+                       sun_rise_time_1,
                        className = 'sunrise_text_value'
                        ),
             ], className = 'sunrise_column'),
@@ -1527,17 +1546,18 @@ def weather_value(n_intervals):
     day = now.strftime('%a')
     date = now.strftime('%d/%m/%Y')
     time_name = now.strftime('%H:%M:%S')
-    # engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    # df = pd.read_sql_table('datatable', engine)
-    # df['Date Time'] = pd.to_datetime(df['Date Time'])
-    # df['Date'] = df['Date Time'].dt.date
-    # df['Date'] = pd.to_datetime(df['Date'])
-    # df['Time'] = df['Date Time'].dt.time
-    # unique_date = df['Date'].unique()
-    # filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
-    # sun_set_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
-    # filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-    # sun_set_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    df['Date Time'] = pd.to_datetime(df['Date Time'])
+    df['Date'] = df['Date Time'].dt.date
+    df['Date'] = pd.to_datetime(df['Date'])
+    df['Time'] = df['Date Time'].dt.time
+    unique_date = df['Date'].unique()
+    filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
+    sun_set_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
+    filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
+    sun_set_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
 
     if time_name >= '00:00:00' and time_name <= '16:30:00':
         return [
@@ -1549,7 +1569,7 @@ def weather_value(n_intervals):
                        className = 'sunset_value'
                        ),
                 html.P(
-                       # sun_set_time_2,
+                       sun_set_time_2,
                        className = 'sunset_text_value'
                        ),
             ], className = 'sunset_column'),
@@ -1564,7 +1584,7 @@ def weather_value(n_intervals):
                        className = 'sunset_value'
                        ),
                 html.P(
-                       # sun_set_time_1,
+                       sun_set_time_1,
                        className = 'sunset_text_value'
                        ),
             ], className = 'sunset_column'),
