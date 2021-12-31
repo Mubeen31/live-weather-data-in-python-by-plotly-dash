@@ -1597,7 +1597,7 @@ def update_graph_value(n_intervals):
     # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
     #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     # df = pd.read_csv('weather_data.csv', names = header_list)
-    engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:5929015d@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+    engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
     df = pd.read_sql_table('datatable', engine)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
@@ -1777,7 +1777,7 @@ def weather_value(n_intervals):
     # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
     #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     # df = pd.read_csv('weather_data.csv', names = header_list)
-    engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:5929015d@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+    engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
     df = pd.read_sql_table('datatable', engine)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
@@ -1799,7 +1799,7 @@ def weather_value(n_intervals):
     # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
     #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     # df = pd.read_csv('weather_data.csv', names = header_list)
-    engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:5929015d@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+    engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
     df = pd.read_sql_table('datatable', engine)
 
     # degree_value = [112.5, 67.5, 90, 157.5, 135, 202.5, 180, 22.5, 45, 247.5, 225, 337.5, 0, 292.5, 315, 270]
