@@ -21,7 +21,7 @@
 }
 }
 
-/*@media (max-width: 681px) {
+@media (max-width: 681px) {
 .title_date_time_container {
   gap: 10px !important;
 }
@@ -83,4 +83,4 @@
 .all_numeric_value_row {
   gap: 15px !important;
 }
-}*/
+}
