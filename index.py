@@ -21,9 +21,9 @@ import sqlalchemy
 # get_temp = df['Temperature'].tail(1).iloc[0]
 # difference_data = get_temp - acc_temp
 # print(difference_data)
-engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-df = pd.read_sql_table('datatable', engine)
-df1 = df.tail(1)
+# engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
+# df = pd.read_sql_table('datatable', engine)
+# df1 = df.tail(1)
 
 
 font_awesome = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
@@ -191,11 +191,11 @@ app.layout = html.Div([
 @app.callback(Output('title_image_value', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-    #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    # df = pd.read_csv('weather_data.csv', names = header_list)
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    # engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
+    # df = pd.read_sql_table('datatable', engine)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
     get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
@@ -366,11 +366,14 @@ def weather_value(n_intervals):
 @app.callback(Output('accu_temp', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df1 = pd.read_sql_table('accuweather', engine)
+    # engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
+    # df1 = pd.read_sql_table('accuweather', engine)
+    acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
+    df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     acc_temp = df1['Temperature'].tail(1).iloc[0]
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0]
     difference_data = get_temp - acc_temp
 
@@ -427,11 +430,12 @@ def weather_value(n_intervals):
 @app.callback(Output('accu_hum', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df1 = pd.read_sql_table('accuweather', engine)
+    acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
+    df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     acc_hum = df1['Humidity'].tail(1).iloc[0]
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_hum = df['Humidity'].tail(1).iloc[0]
 
     if get_hum == acc_hum:
@@ -463,11 +467,12 @@ def weather_value(n_intervals):
 @app.callback(Output('accu_dew_point', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df1 = pd.read_sql_table('accuweather', engine)
+    acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
+    df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     acc_dew_point = df1['Dew Point'].tail(1).iloc[0]
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_humidity = df['Humidity'].tail(1).iloc[0].astype(float)
     dew_point = get_temp - ((100 - get_humidity) / 5)
@@ -526,11 +531,12 @@ def weather_value(n_intervals):
 @app.callback(Output('accu_atm_pressure', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df1 = pd.read_sql_table('accuweather', engine)
+    acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
+    df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     acc_atm_pressure = df1['Atmospheric Pressure'].tail(1).iloc[0]
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_atm_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
 
     if get_atm_pressure == acc_atm_pressure:
@@ -562,11 +568,12 @@ def weather_value(n_intervals):
 @app.callback(Output('accu_wind_speed', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df1 = pd.read_sql_table('accuweather', engine)
+    acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
+    df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     acc_wind_speed = df1['Wind Speed'].tail(1).iloc[0]
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
     if get_wind_speed == acc_wind_speed:
@@ -598,11 +605,12 @@ def weather_value(n_intervals):
 @app.callback(Output('accu_wind_direction', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df1 = pd.read_sql_table('accuweather', engine)
+    acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
+    df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     acc_wind_direction = df1['Wind Direction'].tail(1).iloc[0]
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
 
     # degree_value = [112.5, 67.5, 90, 157.5, 135, 202.5, 180, 22.5, 45, 247.5, 225, 337.5, 0, 292.5, 315, 270]
     # direction_value = ["ESE", "ENE", "E", "SSE", "SE", "SSW", "S", "NNE", "NE", "WSW", "SW", "NNW", "N", "WNW", "NW",
@@ -649,8 +657,9 @@ def weather_value(n_intervals):
 @app.callback(Output('time_value', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     now = datetime.now()
     day = now.strftime('%a')
@@ -672,8 +681,9 @@ def weather_value(n_intervals):
 @app.callback(Output('forecast_text', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     now = datetime.now()
     day = now.strftime('%a')
@@ -690,8 +700,9 @@ def weather_value(n_intervals):
 @app.callback(Output('forecast_image', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     now = datetime.now()
     day = now.strftime('%a')
@@ -707,8 +718,9 @@ def weather_value(n_intervals):
 @app.callback(Output('forecast_value', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     df2 = df[['Humidity', 'Temperature']].tail(1194)
     df_x = df2.drop(['Temperature'], axis = 1)
     df_y = df2['Temperature']
@@ -727,8 +739,9 @@ def weather_value(n_intervals):
 @app.callback(Output('forecast_time', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     now = datetime.now()
     day = now.strftime('%a')
@@ -885,8 +898,9 @@ def weather_value(n_intervals):
 @app.callback(Output('status_temperature', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     convert_c_t_fahrenheit = (get_temp * 9/5) + 32
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
@@ -1099,8 +1113,9 @@ def weather_value(n_intervals):
 @app.callback(Output('first_sentence', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
     get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
@@ -1157,8 +1172,9 @@ def weather_value(n_intervals):
 @app.callback(Output('second_sentence', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0]
     df2 = df[['Humidity', 'Temperature']].tail(1194)
     df_x = df2.drop(['Temperature'], axis = 1)
@@ -1185,8 +1201,9 @@ def weather_value(n_intervals):
 @app.callback(Output('third_sentence', 'children'),
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_temp_add = df['Temperature'].tail(1).iloc[0].astype(float) + 3.00
     get_temp_subtract = df['Temperature'].tail(1).iloc[0].astype(float) - 3.00
@@ -1210,8 +1227,9 @@ def weather_value(n_intervals):
 @app.callback(Output('numeric_value', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_humidity = df['Humidity'].tail(1).iloc[0].astype(float)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     dew_point = get_temp - ((100 - get_humidity) / 5)
@@ -1305,8 +1323,9 @@ def weather_value(n_intervals):
 @app.callback(Output('air_pressure', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
     convert_pa_to_mb = get_air_pressure / 100
 
@@ -1358,8 +1377,9 @@ def weather_value(n_intervals):
 @app.callback(Output('air_quality', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_air_quality = df['CO2 Level'].tail(1).iloc[0].astype(float)
 
     if get_air_quality >= 250.0 and get_air_quality <= 400.0:
@@ -1554,8 +1574,9 @@ def weather_value(n_intervals):
 @app.callback(Output('wind_speed', 'figure'),
               [Input('update_value', 'n_intervals')])
 def update_graph_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
     if get_wind_speed <= 20.00:
@@ -1731,8 +1752,9 @@ def update_graph_value(n_intervals):
 @app.callback(Output('wind_speed_value', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
     return [
@@ -1750,8 +1772,9 @@ def weather_value(n_intervals):
 @app.callback(Output('wind_direction_value', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-    df = pd.read_sql_table('datatable', engine)
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
 
     # degree_value = [112.5, 67.5, 90, 157.5, 135, 202.5, 180, 22.5, 45, 247.5, 225, 337.5, 0, 292.5, 315, 270]
     # direction_value = ["ESE", "ENE", "E", "SSE", "SE", "SSW", "S", "NNE", "NE", "WSW", "SW", "NNW", "N", "WNW", "NW",
