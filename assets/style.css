@@ -354,6 +354,19 @@ body {
   justify-content: center;
 }
 
+.sensor_data_table {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,.1);
+  width: 900px;
+  height: 410px;
+  margin-top: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
 .cloud_image {
   display: flex;
   flex-direction: row;

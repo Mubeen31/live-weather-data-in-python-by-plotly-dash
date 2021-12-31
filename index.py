@@ -11,6 +11,7 @@ import numpy as np
 from datetime import datetime, date, time
 from sklearn import linear_model
 from sklearn.metrics import accuracy_score
+from dash import dash_table as dt
 
 acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
 df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
@@ -146,42 +147,40 @@ app.layout = html.Div([
 
     html.Div([
 
-    html.Div([
         html.Div([
             html.Div([
-                html.Div(id = 'air_pressure',
-                         className = 'air_pressure_value'),
-                html.Div(id = 'air_quality',
-                         className = 'air_quality_value'),
-            ], className = 'atmospheric_pressure_quality_value_column'),
-            html.Div([
-                html.Div(id = 'sun_rise_status'),
-                html.Img(src = app.get_asset_url('climate.png'),
-                         className = 'circle_image'),
-                html.Div(id = 'sun_set_status'),
-            ], className = 'sun_rise_set_status_value'),
-        ], className = 'atmospheric_pressure_quality_value_sun_row'),
+                html.Div([
+                    html.Div(id = 'air_pressure',
+                             className = 'air_pressure_value'),
+                    html.Div(id = 'air_quality',
+                             className = 'air_quality_value'),
+                ], className = 'atmospheric_pressure_quality_value_column'),
+                html.Div([
+                    html.Div(id = 'sun_rise_status'),
+                    html.Img(src = app.get_asset_url('climate.png'),
+                             className = 'circle_image'),
+                    html.Div(id = 'sun_set_status'),
+                ], className = 'sun_rise_set_status_value'),
+            ], className = 'atmospheric_pressure_quality_value_sun_row'),
         ], className = 'background_color_more_details_card1'),
 
-html.Div([
         html.Div([
             html.Div([
-                dcc.Graph(id = 'wind_speed',
-                          animate = False,
-                          config = {'displayModeBar': False},
-                          className = 'wind_speed_graph'),
-                html.Div(id = 'wind_speed_value',
-                         className = 'wind_speed_numeric_value')
-            ], className = 'wind_speed_numeric_value_column'),
+                html.Div([
+                    dcc.Graph(id = 'wind_speed',
+                              animate = False,
+                              config = {'displayModeBar': False},
+                              className = 'wind_speed_graph'),
+                    html.Div(id = 'wind_speed_value',
+                             className = 'wind_speed_numeric_value')
+                ], className = 'wind_speed_numeric_value_column'),
 
-            html.Div(id = 'wind_direction_value',
-                     className = 'wind_speed_direction_numeric_value'),
-        ], className = 'wind_speed_direction_numeric_value_row')
-], className = 'background_color_more_details_card2'),
+                html.Div(id = 'wind_direction_value',
+                         className = 'wind_speed_direction_numeric_value'),
+            ], className = 'wind_speed_direction_numeric_value_row')
+        ], className = 'background_color_more_details_card2'),
 
-], className = 'content_row')
-
-
+    ], className = 'content_row'),
 ])
 
 
@@ -1175,16 +1174,18 @@ def weather_value(n_intervals):
     lr = linear_model.LinearRegression()
     lr.fit(df_x, df_y)
     y_predict = lr.predict(df_x)
-    average_predicted_temperature = np.max(y_predict)
+    average_predicted_temperature = np.average(y_predict)
+    max_predicted_temperature = np.max(y_predict)
+    min_predicted_temperature = np.min(y_predict)
 
     if get_temp <= average_predicted_temperature:
         return [
-            html.P('The high will be ' + '{0:,.0f}°C'.format(average_predicted_temperature) + '.',
+            html.P('The low will be ' + '{0:,.0f}°C'.format(min_predicted_temperature) + '.',
                    className = 'status_paragraph_format'),
         ]
-    if get_temp >= average_predicted_temperature:
+    elif get_temp >= average_predicted_temperature:
         return [
-            html.P('The low will be ' + '{0:,.0f}°C'.format(average_predicted_temperature) + '.',
+            html.P('The high will be ' + '{0:,.0f}°C'.format(max_predicted_temperature) + '.',
                    className = 'status_paragraph_format'),
         ]
 
