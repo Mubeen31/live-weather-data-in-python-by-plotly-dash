@@ -33,7 +33,7 @@ app = dash.Dash(__name__, external_stylesheets = external_stylesheets)
 app.layout = html.Div([
     html.Div([
         dcc.Interval(id = 'update_value',
-                     interval = 3000,
+                     interval = 6000,
                      n_intervals = 0),
     ]),
 
