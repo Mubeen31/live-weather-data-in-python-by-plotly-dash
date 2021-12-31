@@ -13,9 +13,9 @@ while True:
     acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
     df2 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     df3 = df2.tail(1)
-    MysqlConn = create_engine("mysql+pymysql://{user}:{password}@localhost/{db}".format(user = "root",
-                                                                                        password = "sql_root_45t6",
-                                                                                        db = "arduino_sensor_data"))
+    MysqlConn = create_engine("mysql+pymysql://{user}:{password}@eu-cdbr-west-02.cleardb.net:3306/{db}".format(user = "b54eb1e6af434b",
+                                                                                        password = "5929015d",
+                                                                                        db = "heroku_323e0ab91ec4d38"))
     df1.to_sql('datatable',
                con = MysqlConn,
                if_exists = 'append',

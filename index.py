@@ -1594,9 +1594,11 @@ def weather_value(n_intervals):
 @app.callback(Output('wind_speed', 'figure'),
               [Input('update_value', 'n_intervals')])
 def update_graph_value(n_intervals):
-    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data.csv', names = header_list)
+    # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    # df = pd.read_csv('weather_data.csv', names = header_list)
+    engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:5929015d@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+    df = pd.read_sql_table('datatable', engine)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
     if get_wind_speed <= 20.00:
@@ -1772,9 +1774,11 @@ def update_graph_value(n_intervals):
 @app.callback(Output('wind_speed_value', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data.csv', names = header_list)
+    # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    # df = pd.read_csv('weather_data.csv', names = header_list)
+    engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:5929015d@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+    df = pd.read_sql_table('datatable', engine)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
     return [
@@ -1792,9 +1796,11 @@ def weather_value(n_intervals):
 @app.callback(Output('wind_direction_value', 'children'),
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
-    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data.csv', names = header_list)
+    # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+    #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    # df = pd.read_csv('weather_data.csv', names = header_list)
+    engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:5929015d@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+    df = pd.read_sql_table('datatable', engine)
 
     # degree_value = [112.5, 67.5, 90, 157.5, 135, 202.5, 180, 22.5, 45, 247.5, 225, 337.5, 0, 292.5, 315, 270]
     # direction_value = ["ESE", "ENE", "E", "SSE", "SE", "SSW", "S", "NNE", "NE", "WSW", "SW", "NNW", "N", "WNW", "NW",
