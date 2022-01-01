@@ -6,12 +6,12 @@ import plotly.graph_objs as go
 from dash.exceptions import PreventUpdate
 import pandas as pd
 from datetime import datetime, date, time
-import time
 import numpy as np
 from datetime import datetime, date, time
 from sklearn import linear_model
 import sqlalchemy
 from dash import dash_table as dt
+import time
 
 # engine = sqlalchemy.create_engine(
 #         'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
@@ -1516,11 +1516,14 @@ def weather_value(n_intervals):
     df['Date'] = df['Date Time'].dt.date
     df['Date'] = pd.to_datetime(df['Date'])
     df['Time'] = df['Date Time'].dt.time
+    df['Time'] = df['Time'].astype(str)
     unique_date = df['Date'].unique()
     filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
     sun_rise_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
     filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-    sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].tail(1).iloc[0]
+    sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ') &
+                                        (filter_led_date_1['Time'] >= '03:00:00') &
+                                        (filter_led_date_1['Time'] <= '06:00:00')]['Time'].tail(1).iloc[0]
 
     if time_name >= '00:00:00' and time_name <= '08:20:00':
         return [
@@ -1572,7 +1575,7 @@ def weather_value(n_intervals):
     filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
     sun_set_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
     filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-    sun_set_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
+    sun_set_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED OFF ')]['Time'].tail(1).iloc[0]
 
     if time_name >= '00:00:00' and time_name <= '16:30:00':
         return [
