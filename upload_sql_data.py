@@ -1,3 +1,10 @@
+# from push import sql_data
+#
+# df1 = sql_data()
+# va = df1['Temperature'].iloc[9]
+# print(va)
+
+
 # import pandas as pd
 # from sqlalchemy import create_engine
 # import time
