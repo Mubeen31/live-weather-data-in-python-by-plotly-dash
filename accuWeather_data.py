@@ -44,7 +44,7 @@ while True:
     df1['Humidity'] = df1['Humidity'].astype(float)
     df1['Dew Point'] = df1['Dew Point'].astype(float)
     df1['Atmospheric Pressure'] = df1['Atmospheric Pressure'].astype(float)
-    time.sleep(6)
+    time.sleep(480)
 
     temp = df1['Temperature'].iloc[0]
     direction = df1['Wind Direction'].iloc[0]
