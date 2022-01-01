@@ -12,43 +12,11 @@ from datetime import datetime, date, time
 from sklearn import linear_model
 import sqlalchemy
 
-# acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
-# df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
-# acc_temp = df1['Temperature'].tail(1).iloc[0]
-# header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-#                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-# df = pd.read_csv('weather_data.csv', names = header_list)
-# get_temp = df['Temperature'].tail(1).iloc[0]
-# difference_data = get_temp - acc_temp
-# print(difference_data)
-# engine = sqlalchemy.create_engine('mysql+pymysql://root:sql_root_45t6@localhost:3306/arduino_sensor_data')
-# df = pd.read_sql_table('datatable', engine)
-# df1 = df.tail(1)
-# now = datetime.now()
-# day = now.strftime('%a')
-# date = now.strftime('%d/%m/%Y')
-# time_name = now.strftime('%H:%M:%S')
-# header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-#                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-# df = pd.read_csv('weather_data.csv', names = header_list)
-# df['Date Time'] = pd.to_datetime(df['Date Time'])
-# df['Date'] = df['Date Time'].dt.date
-# df['Date'] = pd.to_datetime(df['Date'])
-# df['Time'] = df['Date Time'].dt.time
-# unique_date = df['Date'].unique()
-# filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
-# sun_set_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
-# filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-# sun_set_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ')]['Time'].head(1).iloc[0]
-# print(unique_date)
-
 # engine = sqlalchemy.create_engine(
 #         'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
 # df = pd.read_sql_table('accuweather', engine)
 # df1 = df.tail(1)
 # print(df1)
-
-
 
 font_awesome = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
 meta_tags = [{"name": "viewport", "content": "width=device-width"}]
