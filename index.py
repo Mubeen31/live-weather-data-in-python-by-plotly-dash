@@ -61,7 +61,7 @@ app.title = "Weather Sensor Data"
 app.layout = html.Div([
     html.Div([
         dcc.Interval(id = 'update_value',
-                     interval = 5100000,
+                     interval = 510000,
                      n_intervals = 0),
     ]),
 
