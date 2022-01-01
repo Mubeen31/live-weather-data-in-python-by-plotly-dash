@@ -167,7 +167,7 @@ void loop() {
   speedOfAir = 0.00;
   startTime=millis();         
   attachInterrupt(digitalPinToInterrupt(interruptPin),interruptFunction,RISING);
-  delay(240000);
+  delay(3000);
   detachInterrupt(interruptPin);                
 //now let's see how many counts we've had from the hall effect sensor and calc the RPM
   elapsedTime=millis()-startTime;     //finds the time, should be very close to 1 sec
@@ -213,7 +213,7 @@ void loop() {
 //    Serial.println(bmp.readPressure());
 ////////Atmospheric pressure and temperature//////
  
-  delay(240000);
+  delay(3000);
 }
 void interruptFunction() //interrupt service routine
 {  
