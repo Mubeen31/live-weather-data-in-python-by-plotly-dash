@@ -11,12 +11,18 @@ import numpy as np
 from datetime import datetime, date, time
 from sklearn import linear_model
 import sqlalchemy
+from dash import dash_table as dt
 
 # engine = sqlalchemy.create_engine(
 #         'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
 # df = pd.read_sql_table('accuweather', engine)
 # df1 = df.tail(1)
 # print(df1)
+
+header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+               'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+df5 = pd.read_csv('weather_data.csv', names = header_list)
+df6 = df5.tail(2)
 
 font_awesome = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
 meta_tags = [{"name": "viewport", "content": "width=device-width"}]
@@ -177,6 +183,45 @@ app.layout = html.Div([
         ], className = 'background_color_more_details_card2'),
 
     ], className = 'content_row'),
+
+
+
+# dt.DataTable(id = 'my_datatable',
+#              columns = [{'name': i, 'id': i} for i in
+#                         df5.loc[:, ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+#                                     'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']]],
+#              data=df6.to_dict('records'),
+#              # page_action='native',
+#              # page_size=20,
+#              # editable=False,
+#              sort_action = "native",
+#              sort_mode = "multi",
+#              # column_selectable="single",
+#              # fill_width=False,
+#              style_table={'minWidth': '100%',
+#                           'maxWidth': '100%',
+#                           'margin': '0 auto',
+#                           'margin-top': '20px',
+#                           # 'margin-left': '50px',
+#                           # 'margin-right': '50px'
+#                           },
+#              virtualization = True,
+#              style_cell = {'textAlign': 'left',
+#                            'min-width': '100px',
+#                            'backgroundColor': '#1f2c56',
+#                            'color': '#FEFEFE',
+#                            'border-bottom': '0.01rem solid #19AAE1'
+#                            },
+#              style_as_list_view = True,
+#              style_header = {'backgroundColor': '#1f2c56',
+#                              'fontWeight': 'bold',
+#                              'font': 'Lato, sans-serif',
+#                              'color': 'orange',
+#                              'border': '#1f2c56'
+#                              },
+#              style_data = {'textOverflow': 'hidden', 'color': 'white'},
+#              fixed_rows = {'headers': True},
+#              )
 ])
 
 

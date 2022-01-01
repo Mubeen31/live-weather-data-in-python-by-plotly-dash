@@ -354,13 +354,9 @@ body {
   justify-content: center;
 }
 
-.sensor_data_table {
-  display: flex;
-  flex-direction: row;
+.sensor {
   margin: 0 auto;
   background-color: rgba(255,255,255,.1);
-  width: 900px;
-  height: 410px;
   margin-top: 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   border-top-left-radius: 6px;
@@ -808,4 +804,27 @@ body {
 .w_d_number_value_column {
   display: flex;
   flex-direction: column;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px !important;
+  display: block !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1f2c56 !important;
+  border-radius: 10px !important;
+  display: block !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #192444;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white !important;
 }
