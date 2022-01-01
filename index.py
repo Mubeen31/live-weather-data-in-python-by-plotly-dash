@@ -216,7 +216,7 @@ app.layout = html.Div([
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
@@ -318,7 +318,7 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
     get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
@@ -389,11 +389,11 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     engine1 = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df1 = pd.read_sql_table('accuweather', engine1)
     acc_temp = df1['Temperature'].tail(1).iloc[0]
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_temp = df['Temperature'].tail(1).iloc[0]
     difference_data = get_temp - acc_temp
@@ -452,11 +452,11 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     engine1 = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df1 = pd.read_sql_table('accuweather', engine1)
     acc_hum = df1['Humidity'].tail(1).iloc[0]
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_hum = df['Humidity'].tail(1).iloc[0]
 
@@ -490,11 +490,11 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     engine1 = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df1 = pd.read_sql_table('accuweather', engine1)
     acc_dew_point = df1['Dew Point'].tail(1).iloc[0]
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_humidity = df['Humidity'].tail(1).iloc[0].astype(float)
@@ -555,11 +555,11 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     engine1 = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df1 = pd.read_sql_table('accuweather', engine1)
     acc_atm_pressure = df1['Atmospheric Pressure'].tail(1).iloc[0]
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_atm_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
 
@@ -593,11 +593,11 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     engine1 = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df1 = pd.read_sql_table('accuweather', engine1)
     acc_wind_speed = df1['Wind Speed'].tail(1).iloc[0]
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
@@ -631,11 +631,11 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     engine1 = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df1 = pd.read_sql_table('accuweather', engine1)
     acc_wind_direction = df1['Wind Direction'].tail(1).iloc[0]
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
 
     # degree_value = [112.5, 67.5, 90, 157.5, 135, 202.5, 180, 22.5, 45, 247.5, 225, 337.5, 0, 292.5, 315, 270]
@@ -684,7 +684,7 @@ def weather_value(n_intervals):
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     now = datetime.now()
@@ -708,7 +708,7 @@ def weather_value(n_intervals):
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     now = datetime.now()
@@ -727,7 +727,7 @@ def weather_value(n_intervals):
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     now = datetime.now()
@@ -745,7 +745,7 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     df2 = df[['Humidity', 'Temperature']].tail(1194)
     df_x = df2.drop(['Temperature'], axis = 1)
@@ -766,7 +766,7 @@ def weather_value(n_intervals):
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     now = datetime.now()
@@ -925,7 +925,7 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     convert_c_t_fahrenheit = (get_temp * 9/5) + 32
@@ -1140,7 +1140,7 @@ def weather_value(n_intervals):
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
@@ -1199,7 +1199,7 @@ def weather_value(n_intervals):
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_temp = df['Temperature'].tail(1).iloc[0]
     df2 = df[['Humidity', 'Temperature']].tail(1194)
@@ -1228,7 +1228,7 @@ def weather_value(n_intervals):
               [Input('update_time', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_temp_add = df['Temperature'].tail(1).iloc[0].astype(float) + 3.00
@@ -1254,7 +1254,7 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_humidity = df['Humidity'].tail(1).iloc[0].astype(float)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
@@ -1264,11 +1264,11 @@ def weather_value(n_intervals):
     get_co2_level = df['CO2 Level'].tail(1).iloc[0].astype(float)
     get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
     convert_pa_to_mb = get_air_pressure / 100
-    df['Date Time'] = pd.to_datetime(df['Date Time'])
-    df['Date'] = df['Date Time'].dt.date
-    df['Date'] = pd.to_datetime(df['Date'])
-    unique_date = df['Date'].unique()
-    wind_gusts = df[df['Date'] == unique_date[-1]]['Wind Speed KPH'].max()
+    # df['Date Time'] = pd.to_datetime(df['Date Time'])
+    # df['Date'] = df['Date Time'].dt.date
+    # df['Date'] = pd.to_datetime(df['Date'])
+    # unique_date = df['Date'].unique()
+    # wind_gusts = df[df['Date'] == unique_date[-1]]['Wind Speed KPH'].max()
 
     return [
         html.Div([
@@ -1300,19 +1300,19 @@ def weather_value(n_intervals):
                 ], className = 'number_value_number_image')
             ], className = 'number_value_number_image_column'),
 
-            html.Div([
-                html.P(['WIND GUSTS',
-                       ], className = 'text_value'
-                       ),
-                html.Div([
-                    html.P('{0:,.2f} kph'.format(wind_gusts),
-                           className = 'number_value'
-                           ),
-                    html.Img(src = app.get_asset_url('hurricane.png'),
-                             className = 'number_image'
-                             ),
-                ], className = 'number_value_number_image')
-            ], className = 'number_value_number_image_column'),
+            # html.Div([
+            #     html.P(['WIND GUSTS',
+            #            ], className = 'text_value'
+            #            ),
+            #     html.Div([
+            #         html.P('{0:,.2f} kph'.format(wind_gusts),
+            #                className = 'number_value'
+            #                ),
+            #         html.Img(src = app.get_asset_url('hurricane.png'),
+            #                  className = 'number_image'
+            #                  ),
+            #     ], className = 'number_value_number_image')
+            # ], className = 'number_value_number_image_column'),
 
             html.Div([
                 html.P('ATM PRESSURE',
@@ -1350,7 +1350,7 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
     convert_pa_to_mb = get_air_pressure / 100
@@ -1404,7 +1404,7 @@ def weather_value(n_intervals):
               [Input('update_value', 'n_intervals')])
 def weather_value(n_intervals):
     engine = sqlalchemy.create_engine(
-        'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_air_quality = df['CO2 Level'].tail(1).iloc[0].astype(float)
 
@@ -1605,7 +1605,8 @@ def update_graph_value(n_intervals):
     # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
     #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     # df = pd.read_csv('weather_data.csv', names = header_list)
-    engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+    engine = sqlalchemy.create_engine(
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
@@ -1785,7 +1786,8 @@ def weather_value(n_intervals):
     # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
     #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     # df = pd.read_csv('weather_data.csv', names = header_list)
-    engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+    engine = sqlalchemy.create_engine(
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
@@ -1807,7 +1809,8 @@ def weather_value(n_intervals):
     # header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
     #                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     # df = pd.read_csv('weather_data.csv', names = header_list)
-    engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+    engine = sqlalchemy.create_engine(
+        'mysql+pymysql://b29440cf4f5695:71632bff@eu-cdbr-west-02.cleardb.net:3306/heroku_4e4427d7fc83901')
     df = pd.read_sql_table('datatable', engine)
 
     # degree_value = [112.5, 67.5, 90, 157.5, 135, 202.5, 180, 22.5, 45, 247.5, 225, 337.5, 0, 292.5, 315, 270]
