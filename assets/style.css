@@ -648,9 +648,8 @@ body {
   display: flex;
   flex-direction: row;
   color: red;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
-  margin-top: -10px;
 }
 
 .air_quality_text_status {

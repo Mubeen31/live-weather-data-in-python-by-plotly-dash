@@ -207,11 +207,11 @@ void loop() {
 //  Serial.print(" , ");
 //////Air Quality//////
 
-////////Atmospheric pressure and temperature//////
+//////Atmospheric pressure and temperature//////
 //    Serial.print(bmp.readTemperature());
 //    Serial.print(" , ");
 //    Serial.println(bmp.readPressure());
-////////Atmospheric pressure and temperature//////
+//////Atmospheric pressure and temperature//////
  
   delay(3000);
 }
