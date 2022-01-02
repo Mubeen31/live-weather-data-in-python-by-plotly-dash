@@ -13,16 +13,15 @@ import sqlalchemy
 from dash import dash_table as dt
 import time
 
-# engine = sqlalchemy.create_engine(
-#         'mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
+# engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
 # df = pd.read_sql_table('accuweather', engine)
 # df1 = df.tail(1)
 # print(df1)
 
-header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-               'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-df5 = pd.read_csv('weather_data.csv', names = header_list)
-df6 = df5.tail(2)
+# header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+#                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+# df5 = pd.read_csv('weather_data.csv', names = header_list)
+# df6 = df5.tail(2)
 
 font_awesome = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
 meta_tags = [{"name": "viewport", "content": "width=device-width"}]
@@ -1520,8 +1519,8 @@ def weather_value(n_intervals):
     sun_rise_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
     filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
     sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED ON ') &
-                                        (filter_led_date_1['Time'] >= '03:00:00') &
-                                        (filter_led_date_1['Time'] <= '06:00:00')]['Time'].tail(1).iloc[0]
+                                        (filter_led_date_1['Time'] >= '00:00:00') &
+                                        (filter_led_date_1['Time'] <= '12:00:00')]['Time'].tail(1).iloc[0]
 
     if time_name >= '00:00:00' and time_name <= '08:20:00':
         return [
