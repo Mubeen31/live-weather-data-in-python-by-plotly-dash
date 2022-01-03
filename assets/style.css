@@ -5,6 +5,11 @@ body {
     background: #344464;
 }
 
+.last_data_update_time {
+   display: flex;
+   flex-direction: row;
+}
+
 .title_image {
    display: flex;
    flex-direction: row;
@@ -21,7 +26,6 @@ body {
    flex-direction: row;
    font-size: 13px;
    color: #FFFFFF;
-
 }
 
 .link {
@@ -38,14 +42,13 @@ body {
    flex-direction: row;
    gap: 10px;
    align-items: center;
-   margin-top: -14px;
 }
 
 .title_date_time_container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 70px;
+  gap: 40px;
   background-color: rgba(255, 255, 255, 0.08);
   width: 100%;
   justify-content: center;
@@ -66,6 +69,8 @@ body {
   display: flex;
   flex-direction: row;
   gap: 10px;
+  align-items: center;
+  margin-top: -16px;
 }
 
 .background_image {
@@ -369,6 +374,14 @@ body {
   width: 24px;
   height: 24px;
   color: #FFFFFF;
+}
+
+.updated_time_value {
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
+  color: #FFFFFF;
+  font-weight: bold;
 }
 
 .temperature_value {

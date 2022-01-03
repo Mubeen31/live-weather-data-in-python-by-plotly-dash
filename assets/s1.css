@@ -21,15 +21,34 @@
 }
 }
 
+@media (max-width: 925px) {
+.title_date_time_container {
+  height: 55px !important;
+}
+.link {
+  margin-top: -70px !important;
+}
+}
+
 @media (max-width: 681px) {
 .title_date_time_container {
-  gap: 10px !important;
+  gap: 20px !important;
+  height: 60px !important;
+}
+.link {
+  margin-top: -45px !important;
+}
+.background_image {
+  margin-top: 80px !important;
 }
 }
 
 @media (max-width: 663px) {
 .title_date_time_container {
   gap: 10px !important;
+}
+.link {
+  margin-top: -35px !important;
 }
 .background_image_container {
   width: 510px !important;
@@ -47,6 +66,10 @@
 .all_numeric_value_row {
   gap: 20px !important;
 }
+.accu_weather_card_background_color {
+  width: 495px !important;
+  margin-top: 15px !important;
+}
 }
 
 
@@ -59,6 +82,21 @@
 }
 }
 
+@media (max-width: 564px) {
+.title_image_value_row {
+  margin-top: -46px !important;
+}
+.title_date_time_container {
+  height: 85px !important;
+}
+.link {
+  margin-top: -36px !important;
+}
+.background_image {
+  margin-top: 110px !important;
+}
+}
+
 
 @media (max-width: 536px) {
 .background_image_container {
@@ -66,7 +104,7 @@
 }
 .accu_weather_card_background_color {
   width: 470px !important;
-  margin-top: 5px !important;
+  margin-top: 15px !important;
 }
 .background_color_more_details {
   width: 470px !important;

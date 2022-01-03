@@ -47,6 +47,9 @@ app.layout = html.Div([
     html.Div([
         html.Div([
             html.Div([
+                html.Div(id = 'last_data_update_time'),
+            ], className = 'last_data_update_time'),
+            html.Div([
                 html.Div([
                     html.Div([
                         html.I(className = "fas fa-home"),
@@ -182,46 +185,23 @@ app.layout = html.Div([
         ], className = 'background_color_more_details_card2'),
 
     ], className = 'content_row'),
-
-
-
-# dt.DataTable(id = 'my_datatable',
-#              columns = [{'name': i, 'id': i} for i in
-#                         df5.loc[:, ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-#                                     'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']]],
-#              data=df6.to_dict('records'),
-#              # page_action='native',
-#              # page_size=20,
-#              # editable=False,
-#              sort_action = "native",
-#              sort_mode = "multi",
-#              # column_selectable="single",
-#              # fill_width=False,
-#              style_table={'minWidth': '100%',
-#                           'maxWidth': '100%',
-#                           'margin': '0 auto',
-#                           'margin-top': '20px',
-#                           # 'margin-left': '50px',
-#                           # 'margin-right': '50px'
-#                           },
-#              virtualization = True,
-#              style_cell = {'textAlign': 'left',
-#                            'min-width': '100px',
-#                            'backgroundColor': '#1f2c56',
-#                            'color': '#FEFEFE',
-#                            'border-bottom': '0.01rem solid #19AAE1'
-#                            },
-#              style_as_list_view = True,
-#              style_header = {'backgroundColor': '#1f2c56',
-#                              'fontWeight': 'bold',
-#                              'font': 'Lato, sans-serif',
-#                              'color': 'orange',
-#                              'border': '#1f2c56'
-#                              },
-#              style_data = {'textOverflow': 'hidden', 'color': 'white'},
-#              fixed_rows = {'headers': True},
-#              )
 ])
+
+
+@app.callback(Output('last_data_update_time', 'children'),
+              [Input('update_value', 'n_intervals')])
+def weather_value(n_intervals):
+    header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+    df = pd.read_csv('weather_data.csv', names = header_list)
+    get_dat_time = df['Date Time'].tail(1).iloc[0]
+
+    return [
+        html.P('Last Updated Time: ' + get_dat_time,
+               className = 'updated_time_value'
+               ),
+
+    ]
 
 
 @app.callback(Output('title_image_value', 'children'),
