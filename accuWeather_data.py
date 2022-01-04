@@ -17,11 +17,12 @@ while True:
     left_string = r.html.find('div.left', first = True).text
     sp_stri_left = left_string.split()
     acc_indoor = sp_stri_left[10]
+    acc_dry = sp_stri_left[13]
     if acc_indoor == 'Indoor':
         acc_wind_direction = sp_stri_left[1]
         acc_wind_speed = sp_stri_left[2]
         acc_humidity = sp_stri_left[9]
-        acc_dew_point = sp_stri_left[17]
+        acc_dew_point = sp_stri_left[16]
         # acc_wind_direction = sp_stri_left[9]
         # acc_wind_speed = sp_stri_left[10]
         # acc_humidity = sp_stri_left[17]
