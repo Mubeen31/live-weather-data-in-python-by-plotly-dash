@@ -1,7 +1,7 @@
 /////humidity and temperature///////
 #include "DHT.h"             // DHT sensors library
 #define dhtPin 8             // This is data pin
-#define dhtType DHT11        // This is DHT 11 sensor
+#define dhtType DHT22        // This is DHT 22 sensor
 DHT dht(dhtPin, dhtType);    // Initialising the DHT library
 float humValue;           // value of humidity
 float temperatureValueC;  // value of temperature in degrees Celcius
