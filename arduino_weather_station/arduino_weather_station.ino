@@ -201,7 +201,7 @@ void loop() {
 
 //////Air Quality//////
   int airQualityData = analogRead(airQuality);
-  co2Level = airQualityData - 55;
+  co2Level = airQualityData - 112;
   co2Level = map(co2Level,0,1024,400,5000);
   Serial.print(co2Level);
   Serial.print(" , ");
