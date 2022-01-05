@@ -13,10 +13,10 @@ while True:
     acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
     df2 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
     df3 = df2.tail(1)
-    MysqlConn = create_engine("mysql+pymysql://{user}:{password}@127.0.0.1:3306/{db}".
-                              format(user = "livecmex_liveweatherdata",
-                                     password = "liveweatherdata",
-                                     db = "livecmex_streamdata"))
+    MysqlConn = create_engine("mysql+pymysql://{user}:{password}@34.142.96.162:3306/{db}".
+                              format(user = "root",
+                                     password = "572Iadp6tOjgipDk",
+                                     db = "weather_sensor_data"))
 
 
     df1.to_sql('datatable',
