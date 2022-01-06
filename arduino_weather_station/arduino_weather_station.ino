@@ -27,6 +27,7 @@ int rpm=0; // max value 32,767 16 bit
 int revo = 0;
 long  startTime=0;
 long  elapsedTime;
+//int period = 10000;
 int anemometerRadius = 6;    //unit is "inch"
 int diameter = 2;
 int anemometerDiameter = diameter * anemometerRadius;   //(2*6) unit is "inch"
@@ -173,6 +174,7 @@ void loop() {
   elapsedTime=millis()-startTime;     //finds the time, should be very close to 1 sec
   if(revolutions>0) {
     rpm=(max(1, revolutions) * 60000) / elapsedTime;        //calculates rpm
+//    rpm=(max(1, revolutions) * 60000) / elapsedTime;        //calculates rpm
     revo = revolutions;
     circumferenceRpm = anemometerCircumference * rpm;       //unit is "inches per minute"
     divideInches = circumferenceRpm / inchesKilometer;      //unit is "kilometer per minute"
