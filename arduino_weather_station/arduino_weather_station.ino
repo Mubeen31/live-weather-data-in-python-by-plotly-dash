@@ -119,10 +119,10 @@ unsigned status;
 void loop() {
 ///////humidity and temperature///////
   humValue = dht.readHumidity();               // value of humidity
-//  temperatureValueC = dht.readTemperature();   // value of temperature in degrees Celcius
+  temperatureValueC = dht.readTemperature();   // value of temperature in degrees Celcius
   Serial.print(humValue);     // get value of humidity
-//  Serial.print(" , ");          // create space after the value of humidity
-//  Serial.print(temperatureValueC);  // get value of temperature in degrees Celcius
+  Serial.print(" , ");          // create space after the value of humidity
+  Serial.print(temperatureValueC);  // get value of temperature in degrees Celcius
 ///////humidity and temperature///////
 
 ///////rain///////
@@ -208,8 +208,8 @@ void loop() {
 //////Air Quality//////
 
 ////Atmospheric pressure and temperature//////
-    Serial.print(bmp.readTemperature());
-    Serial.print(" , ");
+//    Serial.print(bmp.readTemperature());
+//    Serial.print(" , ");
     Serial.println(bmp.readPressure());
 ////Atmospheric pressure and temperature//////
  
