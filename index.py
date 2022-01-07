@@ -179,8 +179,12 @@ app.layout = html.Div([
                              className = 'wind_speed_numeric_value')
                 ], className = 'wind_speed_numeric_value_column'),
 
-                html.Div(id = 'wind_direction_value',
-                         className = 'wind_speed_direction_numeric_value'),
+                # html.Div(id = 'wind_direction_value',
+                #          className = 'wind_speed_direction_numeric_value'),
+                dcc.Graph(id = 'wind_direction_graph',
+                          animate = False,
+                          config = {'displayModeBar': False},
+                          className = 'wind_direction_graph'),
             ], className = 'wind_speed_direction_numeric_value_row')
         ], className = 'background_color_more_details_card2'),
 
@@ -1251,6 +1255,7 @@ def weather_value(n_intervals):
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     dew_point = get_temp - ((100 - get_humidity) / 5)
     get_wind = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
+    get_wind_direction = df['Wind Direction'].tail(1).iloc[0]
     get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
     convert_pa_to_mb = get_air_pressure / 100
     df['Date Time'] = pd.to_datetime(df['Date Time'])
@@ -1304,14 +1309,14 @@ def weather_value(n_intervals):
             ], className = 'number_value_number_image_column'),
 
             html.Div([
-                html.P('ATM PRESSURE',
+                html.P('WIND DIRECTION',
                        className = 'text_value'
                        ),
                 html.Div([
-                    html.P('{0:,.2f} mb'.format(convert_pa_to_mb),
+                    html.P(get_wind_direction,
                            className = 'number_value'
                            ),
-                    html.Img(src = app.get_asset_url('air.png'),
+                    html.Img(src = app.get_asset_url('wd.png'),
                              className = 'number_image'
                              ),
                 ], className = 'number_value_number_image')
@@ -1617,13 +1622,14 @@ def update_graph_value(n_intervals):
                 #           },
                 domain = {'y': [0, 1], 'x': [0, 1]})],
             'layout': go.Layout(
-                title = {'text': '',
-                         'y': 0.8,
+                title = {'text': 'Wind Speed and Direction',
+                         'y': 0.75,
                          'x': 0.5,
                          'xanchor': 'center',
                          'yanchor': 'top'
                          },
-                font = dict(color = 'white'),
+                font = dict(color = 'white',
+                            size = 10),
                 paper_bgcolor = 'rgba(255, 255, 255, 0)',
                 plot_bgcolor = 'rgba(255, 255, 255, 0)',
             ),
@@ -1790,46 +1796,86 @@ def weather_value(n_intervals):
     ]
 
 
-@app.callback(Output('wind_direction_value', 'children'),
+# @app.callback(Output('wind_direction_value', 'children'),
+#               [Input('update_value', 'n_intervals')])
+# def weather_value(n_intervals):
+#     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+#                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+#     df = pd.read_csv('weather_data.csv', names = header_list)
+#
+#     # engine = sqlalchemy.create_engine('mysql+pymysql://vo73ww2oq1t3byst:tw4syv8irwcxd5iv@d3y0lbg7abxmbuoi.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/eqgk9pk342vfu3vx')
+#     # df = pd.read_sql_table('accuweather', engine)
+#
+#     # degree_value = [112.5, 67.5, 90, 157.5, 135, 202.5, 180, 22.5, 45, 247.5, 225, 337.5, 0, 292.5, 315, 270]
+#     # direction_value = ["ESE", "ENE", "E", "SSE", "SE", "SSW", "S", "NNE", "NE", "WSW", "SW", "NNW", "N", "WNW", "NW",
+#     #                    "W"]
+#     # dictionary_degree_direction = {'Degree': degree_value, 'Direction': direction_value}
+#     # df2 = pd.DataFrame(dictionary_degree_direction)
+#     # df2['Degree'] = df2['Degree'].astype(float)
+#     # df2['Direction'] = df2['Direction'].astype(str)
+#     # merge_df = pd.merge(left = df,
+#     #                     right = df2,
+#     #                     how = 'inner',
+#     #                     left_on = ['Wind Direction'],
+#     #                     right_on = ['Degree'])
+#
+#     get_wind_direction = df['Wind Direction'].tail(1).iloc[0]
+#
+#     return [
+#             html.Div([
+#                 html.Img(src = app.get_asset_url('compass.png'),
+#                          className = 'compass_image'
+#                          ),
+#                 html.Div([
+#                     html.P('WIND DIRECTION',
+#                            className = 'w_d_value'
+#                            ),
+#                     html.P(get_wind_direction,
+#                            className = 'w_d_number_value'
+#                            ),
+#                 ], className = 'w_d_number_value_row'),
+#             ], className = 'w_d_number_value_column'),
+#         ]
+
+
+@app.callback(Output('wind_direction_graph', 'figure'),
               [Input('update_value', 'n_intervals')])
-def weather_value(n_intervals):
+def update_graph_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
+    r_value = [112.5,67.5,90,157.5,135,202.5,180,22.5,45,247.5,225,337.5,0,292.5,315,270]
+    theta_value = ["ESE","ENE","E","SSE","SE","SSW","S","NNE","NE","WSW","SW","NNW","N","WNW","NW","W"]
 
-    # engine = sqlalchemy.create_engine('mysql+pymysql://vo73ww2oq1t3byst:tw4syv8irwcxd5iv@d3y0lbg7abxmbuoi.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/eqgk9pk342vfu3vx')
-    # df = pd.read_sql_table('accuweather', engine)
-
-    # degree_value = [112.5, 67.5, 90, 157.5, 135, 202.5, 180, 22.5, 45, 247.5, 225, 337.5, 0, 292.5, 315, 270]
-    # direction_value = ["ESE", "ENE", "E", "SSE", "SE", "SSW", "S", "NNE", "NE", "WSW", "SW", "NNW", "N", "WNW", "NW",
-    #                    "W"]
-    # dictionary_degree_direction = {'Degree': degree_value, 'Direction': direction_value}
-    # df2 = pd.DataFrame(dictionary_degree_direction)
-    # df2['Degree'] = df2['Degree'].astype(float)
-    # df2['Direction'] = df2['Direction'].astype(str)
-    # merge_df = pd.merge(left = df,
-    #                     right = df2,
-    #                     how = 'inner',
-    #                     left_on = ['Wind Direction'],
-    #                     right_on = ['Degree'])
-
-    get_wind_direction = df['Wind Direction'].tail(1).iloc[0]
-
-    return [
-            html.Div([
-                html.Img(src = app.get_asset_url('compass.png'),
-                         className = 'compass_image'
-                         ),
-                html.Div([
-                    html.P('WIND DIRECTION',
-                           className = 'w_d_value'
-                           ),
-                    html.P(get_wind_direction,
-                           className = 'w_d_number_value'
-                           ),
-                ], className = 'w_d_number_value_row'),
-            ], className = 'w_d_number_value_column'),
-        ]
+    return {
+        'data': [go.Scatterpolar(
+            r = r_value,
+            theta = theta_value,
+            fill = 'toself',
+            mode = 'markers+lines',
+            marker = dict(color = 'rgb(111, 231, 219)',
+                          size = 5,
+                          line = dict(color = 'rgba(111, 231, 219, .1)',
+                                      width = 1)),
+        ),
+            go.Scatterpolar(
+                r = df['Wind Degree'].tail(1),
+                theta = df['Wind Direction'].tail(1),
+                mode = 'markers',
+                marker = dict(color = 'orange',
+                              size = 10)
+                )],
+        'layout': go.Layout(polar = dict(radialaxis = dict(visible = False),
+                                         bgcolor = 'rgba(255, 255, 255, 0)',
+                                         angularaxis = dict(showline = True,
+                                                            linecolor = 'white',
+                                                            tickcolor = 'white')),
+                            showlegend = False,
+                            paper_bgcolor = 'rgba(255, 255, 255, 0)',
+                            plot_bgcolor = 'rgba(255, 255, 255, 0)',
+                            font = dict(color = 'white'),
+                            ),
+        }
 
 
 if __name__ == "__main__":

@@ -317,14 +317,16 @@ body {
 .wind_speed_graph {
   display: flex;
   flex-direction: row;
-  width: 350px;
+  width: 330px;
   height: 300px;
+  margin-left: -50px;
 }
 
 .wind_speed_numeric_value {
   display: flex;
   flex-direction: row;
   margin-top: -140px;
+  margin-left: -50px;
 }
 
 .wind_speed_numeric_value_column {
@@ -333,6 +335,15 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: -100px;
+}
+
+.wind_direction_graph {
+  display: flex;
+  flex-direction: row;
+  width: 370px;
+  height: 310px;
+  margin-left: -100px;
+  margin-top: -20px;
 }
 
 .wind_speed_direction_numeric_value {
@@ -348,7 +359,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-left: -40px;
+  /*margin-left: -40px;*/
 }
 
 .content_row {
