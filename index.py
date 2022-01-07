@@ -1857,14 +1857,19 @@ def update_graph_value(n_intervals):
                           size = 5,
                           line = dict(color = 'rgba(111, 231, 219, .1)',
                                       width = 1)),
+            hoverinfo = 'skip',
         ),
             go.Scatterpolar(
                 r = df['Wind Degree'].tail(1),
                 theta = df['Wind Direction'].tail(1),
                 mode = 'markers',
                 marker = dict(color = 'orange',
-                              size = 10)
-                )],
+                              size = 10),
+                hoverinfo = 'text',
+                hovertext =
+                '<b>Degree</b>: ' + df['Wind Degree'].tail(1).astype(str) + '<br>' +
+                '<b>Direction</b>: ' + df['Wind Direction'].tail(1).astype(str) + '<br>'
+            )],
         'layout': go.Layout(polar = dict(radialaxis = dict(visible = False),
                                          bgcolor = 'rgba(255, 255, 255, 0)',
                                          angularaxis = dict(showline = True,
