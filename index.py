@@ -234,6 +234,27 @@ def weather_value(n_intervals):
     get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
     convert_pa_to_mb = get_air_pressure / 100
 
+    if convert_pa_to_mb > 1000 and get_led_on == ' LED ON ':
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('night-cloud.png'),
+                         className = 'cloud_image'),
+                html.P('{0:,.0f}°C'.format(get_temp),
+                       className = 'temperature_value'
+                       ),
+            ], className = 'image_value'),
+        ]
+    if convert_pa_to_mb < 1000 and get_rain_value > 900 and get_led_on == ' LED ON ':
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('night-cloud.png'),
+                         className = 'cloud_image'),
+                html.P('{0:,.0f}°C'.format(get_temp),
+                       className = 'temperature_value'
+                       ),
+            ], className = 'image_value'),
+        ]
+
     if get_rain_value <= 800.0 and get_led_on == ' LED ON ':
         return [
             html.Div([
