@@ -13,10 +13,17 @@ import sqlalchemy
 from dash import dash_table as dt
 import time
 
-# header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-#                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-# df = pd.read_csv('weather_data.csv', names = header_list)
-
+header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+                   'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+df = pd.read_csv('weather_data.csv', names = header_list)
+# df2 = df[['Temperature', 'Air Pressure']].tail(1194)
+# df_x = df2.drop(['Air Pressure'], axis = 1)
+# df_y = df2['Air Pressure']
+# lr = linear_model.LinearRegression()
+# lr.fit(df_x, df_y)
+# y_predict = lr.predict(df_x)
+# average_predicted_pressure = np.average(y_predict)
+# print(average_predicted_pressure)
 # engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
 # df = pd.read_sql_table('accuweather', engine)
 # df1 = df.tail(1)
