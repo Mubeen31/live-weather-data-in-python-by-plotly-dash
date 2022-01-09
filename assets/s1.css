@@ -68,8 +68,7 @@
   margin-top: -10px !important;
 }
 .accu_weather_card_background_color {
-  width: 495px !important;
-  margin-top: 15px !important;
+  margin-top: 5px !important;
 }
 .three_rows {
   display: flex !important;
@@ -109,10 +108,6 @@
 @media (max-width: 536px) {
 .background_image_container {
   width: 470px !important;
-}
-.accu_weather_card_background_color {
-  width: 470px !important;
-  margin-top: 15px !important;
 }
 .background_color_more_details {
   width: 470px !important;
