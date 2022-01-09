@@ -13,6 +13,10 @@ import sqlalchemy
 from dash import dash_table as dt
 import time
 
+# header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+#                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+# df = pd.read_csv('weather_data.csv', names = header_list)
+
 # engine = sqlalchemy.create_engine('mysql+pymysql://b54eb1e6af434b:181636f95f46e13@eu-cdbr-west-02.cleardb.net:3306/heroku_323e0ab91ec4d38')
 # df = pd.read_sql_table('accuweather', engine)
 # df1 = df.tail(1)
@@ -104,12 +108,16 @@ app.layout = html.Div([
                     ], className = 'status_temperature_value_row'),
 
                     html.Div([
-                        html.Div(id = 'first_sentence',
-                                 className = 'status_paragraph_value'),
-                        html.Div(id = 'second_sentence',
-                                 className = 'status_paragraph_value'),
-                        html.Div(id = 'third_sentence',
-                                 className = 'status_paragraph_value'),
+                        html.Div([
+                            html.Div([
+                                html.Div(id = 'first_sentence',
+                                         className = 'status_paragraph_value'),
+                                html.Div(id = 'second_sentence',
+                                         className = 'status_paragraph_value'),
+                            ], className = 'two_rows'),
+                            html.Div(id = 'third_sentence',
+                                     className = 'status_paragraph_value1'),
+                        ], className = 'three_rows')
                     ], className = 'sentence_row'),
 
                     html.Div([
@@ -724,15 +732,40 @@ def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
-    get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
-    now = datetime.now()
-    day = now.strftime('%a')
-    date = now.strftime('%d/%m/%Y')
-    time = now.strftime('%H:%M:%S')
+    get_led_on = df['Photo Resistor LED'].tail(1).iloc[0]
+    df['Air Pressure'] = df['Air Pressure'] / 100
+    df2 = df[['Temperature', 'Air Pressure']].tail(1194)
+    df_x = df2.drop(['Air Pressure'], axis = 1)
+    df_y = df2['Air Pressure']
+    lr = linear_model.LinearRegression()
+    lr.fit(df_x, df_y)
+    y_predict = lr.predict(df_x)
+    average_predicted_pressure = np.average(y_predict)
 
-    return [
-        html.Img(src = app.get_asset_url('rain.png'),
-                 className = 'forecast_image'),
+    if average_predicted_pressure < 1000 and get_led_on == ' LED ON ':
+        return [
+            html.Img(src = app.get_asset_url('night-rain.png'),
+                     className = 'forecast_image'),
+        ]
+    if average_predicted_pressure > 1000 and get_led_on == ' LED ON ':
+        return [
+            html.Img(src = app.get_asset_url('night-cloud.png'),
+                     className = 'forecast_image'),
+        ]
+    if average_predicted_pressure < 1000:
+        return [
+            html.Img(src = app.get_asset_url('rain.png'),
+                     className = 'forecast_image'),
+    ]
+    elif average_predicted_pressure > 1000 and average_predicted_pressure < 1010:
+        return [
+            html.Img(src = app.get_asset_url('cloud.png'),
+                     className = 'forecast_image'),
+    ]
+    elif average_predicted_pressure > 1010:
+        return [
+            html.Img(src = app.get_asset_url('sunny.png'),
+                     className = 'forecast_image'),
     ]
 
 
@@ -934,6 +967,49 @@ def weather_value(n_intervals):
     get_led_on = df['Photo Resistor LED'].tail(1).iloc[0]
     get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
     convert_pa_to_mb = get_air_pressure / 100
+
+    if convert_pa_to_mb > 1000 and get_led_on == ' LED ON ':
+        return [
+            html.Div([
+                html.Div([
+                    html.Img(src = app.get_asset_url('night-cloud.png'),
+                             className = 'image_position'),
+                    html.P('{0:,.2f}°C'.format(get_temp),
+                           className = 'status_temperature'
+                           ),
+                ], className = 'image_position_status_temperature'),
+
+                html.Div([
+                    html.P('Cloudy',
+                           className = 'status_temperature_right'
+                           ),
+                    html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(convert_f_t_c),
+                           className = 'status_temperature_right_temperature'
+                           ),
+                ], className = 'status_temperature_right_temperature_column')
+            ], className = 'status_temperature_right_temperature_row'),
+        ]
+    if convert_pa_to_mb < 1000 and get_rain_value > 900 and get_led_on == ' LED ON ':
+        return [
+            html.Div([
+                html.Div([
+                    html.Img(src = app.get_asset_url('night-cloud.png'),
+                             className = 'image_position'),
+                    html.P('{0:,.2f}°C'.format(get_temp),
+                           className = 'status_temperature'
+                           ),
+                ], className = 'image_position_status_temperature'),
+
+                html.Div([
+                    html.P('Cloudy',
+                           className = 'status_temperature_right'
+                           ),
+                    html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(convert_f_t_c),
+                           className = 'status_temperature_right_temperature'
+                           ),
+                ], className = 'status_temperature_right_temperature_column')
+            ], className = 'status_temperature_right_temperature_row'),
+        ]
 
     if get_rain_value <= 800.0 and get_led_on == ' LED ON ':
         return [
@@ -1137,7 +1213,8 @@ def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
-    get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
+    df['Air Pressure'] = df['Air Pressure'] / 100
+    get_pressure = df['Air Pressure'].tail(1).iloc[0]
     get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
     get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
     get_led_on = df['Photo Resistor LED'].tail(1).iloc[0]
@@ -1148,7 +1225,27 @@ def weather_value(n_intervals):
     date = now.strftime('%d/%m/%Y')
     time = now.strftime('%H:%M:%S')
 
-    if get_rain_value <= 800.0 and get_led_on == ' LED ON ':
+    if get_pressure > 1000 and get_led_on == ' LED ON ':
+        return [
+            html.P('The skies will be cloudy.',
+                   className = 'status_paragraph_format'),
+        ]
+    if get_pressure < 1000 and get_led_on == ' LED ON ':
+        return [
+            html.P('Rain is expected during the night.',
+                   className = 'status_paragraph_format'),
+        ]
+    if get_pressure > 1000 and get_rain_value >= 800.0 and get_rain_value <= 900.0 and get_led_on == ' LED ON ':
+        return [
+            html.P('Rain is expected during the night.',
+                   className = 'status_paragraph_format'),
+        ]
+    if get_pressure > 1000 and get_rain_value <= 800.0 and get_led_on == ' LED ON ':
+        return [
+            html.P('Rain is expected during the night.',
+                   className = 'status_paragraph_format'),
+        ]
+    if get_pressure < 1000 and get_rain_value <= 800.0 and get_led_on == ' LED ON ':
         return [
             html.P('Rain is expected during the night.',
                    className = 'status_paragraph_format'),
@@ -1236,7 +1333,7 @@ def weather_value(n_intervals):
     date_now = now.strftime('%d/%m/%Y')
     time_now = now.strftime('%H:%M:%S')
 
-    if get_temp >= 1.00 and get_temp <= 4.00:
+    if get_temp >= 1.00 and get_temp <= 3.00:
         return [
             html.P('Temperatures near freezing.',
                    className = 'status_paragraph_format'),
