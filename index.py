@@ -742,7 +742,7 @@ def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
-    df2 = df[['Humidity', 'Temperature']].tail(100)
+    df2 = df[['Air Pressure', 'Temperature']].tail(1194)
     df_x = df2.drop(['Temperature'], axis = 1)
     df_y = df2['Temperature']
     lr = linear_model.LinearRegression()
@@ -1346,10 +1346,13 @@ def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
+    df['Air Pressure'] = df['Air Pressure'] / 1
+    df['Pressure_Difference'] = df['Air Pressure'].diff()
+    pressure_difference = df['Pressure_Difference'].tail(1).iloc[0].astype(float)
     get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
     convert_pa_to_mb = get_air_pressure / 100
 
-    if convert_pa_to_mb < 1013.00:
+    if pressure_difference < 0:
         return [
             html.Div([
                 html.Img(src = app.get_asset_url('atmospheric-pressure.png'),
@@ -1371,7 +1374,7 @@ def weather_value(n_intervals):
 
         ]
 
-    elif convert_pa_to_mb > 1013.00:
+    elif pressure_difference > 0:
         return [
             html.Div([
                 html.Img(src = app.get_asset_url('atmospheric-pressure.png'),
@@ -1386,6 +1389,27 @@ def weather_value(n_intervals):
                            className = 'air_value'
                            ),
                     html.P('Rising',
+                           className = 'falling_rising_value'
+                           ),
+                ], className = 'air_pressure_text_air_value')
+            ], className = 'air_pressure_text_air_value_row'),
+
+        ]
+    elif pressure_difference == 0:
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('atmospheric-pressure.png'),
+                         className = 'atmospheric_image'
+                         ),
+                html.Div([
+                    html.P('ATMOSPHERIC PRESSURE',
+                           className = 'air_pressure_text_value'
+                           ),
+
+                    html.P('{0:,.2f} mb'.format(convert_pa_to_mb),
+                           className = 'air_value'
+                           ),
+                    html.P('',
                            className = 'falling_rising_value'
                            ),
                 ], className = 'air_pressure_text_air_value')
@@ -1522,6 +1546,7 @@ def weather_value(n_intervals):
                        className = 'sunrise_value'
                        ),
                 html.P(
+                    # '08:21:01',
                        sun_rise_time_2,
                        className = 'sunrise_text_value'
                        ),
@@ -1537,6 +1562,7 @@ def weather_value(n_intervals):
                        className = 'sunrise_value'
                        ),
                 html.P(
+                    # '08:21:01',
                        sun_rise_time_1,
                        className = 'sunrise_text_value'
                        ),
@@ -1573,6 +1599,7 @@ def weather_value(n_intervals):
                        className = 'sunset_value'
                        ),
                 html.P(
+                    # '16:09:29',
                        sun_set_time_2,
                        className = 'sunset_text_value'
                        ),
@@ -1590,6 +1617,7 @@ def weather_value(n_intervals):
                        className = 'sunset_value'
                        ),
                 html.P(
+                    # '16:09:29',
                        sun_set_time_1,
                        className = 'sunset_text_value'
                        ),
@@ -1844,8 +1872,12 @@ def update_graph_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
-    r_value = [112.5,67.5,90,157.5,135,202.5,180,22.5,45,247.5,225,337.5,0,292.5,315,270]
-    theta_value = ["ESE","ENE","E","SSE","SE","SSW","S","NNE","NE","WSW","SW","NNW","N","WNW","NW","W"]
+    # r_value = [112.5,67.5,90,157.5,135,202.5,180,22.5,45,247.5,225,337.5,0,292.5,315,270]
+    # theta_value = ["ESE","ENE","E","SSE","SE","SSW","S","NNE","NE","WSW","SW","NNW","N","WNW","NW","W"]
+    # r_value = [0,22.5,45,67.5,90,112.5,135,157.5,180,202.5,225,247.5,270,292.5,315,337.5]
+    # theta_value = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW']
+    r_value = [90, 67.5, 45, 22.5, 0, 337.5, 315, 292.5, 270, 247.5, 225, 202.5, 180, 157.5, 135, 112.5]
+    theta_value = ['E', 'ENE', 'NE', 'NNE', 'N', 'NNW', 'NW', 'WNW', 'W', 'WSW', 'SW', 'SSW', 'S', 'SSE', 'SE', 'ESE']
 
     return {
         'data': [go.Scatterpolar(
