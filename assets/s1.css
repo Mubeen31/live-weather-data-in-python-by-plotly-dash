@@ -67,9 +67,6 @@
   gap: 20px !important;
   margin-top: -10px !important;
 }
-.accu_weather_card_background_color {
-  margin-top: 5px !important;
-}
 .three_rows {
   display: flex !important;
   flex-direction: column !important;
@@ -123,5 +120,9 @@
 }
 .all_numeric_value_row {
   gap: 15px !important;
+}
+.accu_weather_card_background_color {
+  width: 470px !important;
+  margin-top: 5px !important;
 }
 }

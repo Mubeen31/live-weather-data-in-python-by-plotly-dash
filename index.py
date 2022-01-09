@@ -1367,7 +1367,10 @@ def weather_value(n_intervals):
                    className = 'status_paragraph_format'),
         ]
     else:
-        []
+        return [
+            html.P('-',
+                   className = 'status_paragraph_format1'),
+        ]
 
 
 @app.callback(Output('numeric_value', 'children'),
