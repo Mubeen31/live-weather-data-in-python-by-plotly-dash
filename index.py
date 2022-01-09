@@ -1197,7 +1197,7 @@ def weather_value(n_intervals):
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0]
-    df2 = df[['Humidity', 'Temperature']].tail(100)
+    df2 = df[['Air Pressure', 'Temperature']].tail(1194)
     df_x = df2.drop(['Temperature'], axis = 1)
     df_y = df2['Temperature']
     lr = linear_model.LinearRegression()
