@@ -26,7 +26,7 @@ UFUNC_ALIASES = {
     "true_divide": "truediv",
     "power": "pow",
     "remainder": "mod",
-    "divide": "truediv",
+    "divide": "div",
     "equal": "eq",
     "not_equal": "ne",
     "less": "lt",
