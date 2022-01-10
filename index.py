@@ -1717,7 +1717,7 @@ def weather_value(n_intervals):
     sun_set_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED OFF ')]['Time'].tail(1).iloc[0]
     filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
 
-    if time_name >= '00:00:00' and time_name <= '16:30:00':
+    if time_name >= '00:00:00' and time_name <= '16:25:00':
         return [
             html.Div([
                 html.Img(src = app.get_asset_url('sunset.png'),
@@ -1733,7 +1733,7 @@ def weather_value(n_intervals):
                        ),
             ], className = 'sunset_column'),
         ]
-    elif time_name > '16:30:00' and time_name <= '23:59:59':
+    elif time_name > '16:25:00' and time_name <= '23:59:59':
         sun_set_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED OFF ')]['Time'].tail(1).iloc[0]
 
         return [
