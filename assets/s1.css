@@ -126,3 +126,55 @@
   margin-top: 5px !important;
 }
 }
+
+@media only screen
+and (max-device-width: 622px) {
+.title_date_time_container {
+  height: 60px !important;
+}
+.link {
+  margin-top: -36px !important;
+}
+}
+
+@media only screen
+and (max-device-width: 564px) {
+.title_image_value_row {
+  margin-top: -46px !important;
+}
+.title_date_time_container {
+  height: 85px !important;
+}
+.link {
+  margin-top: -36px !important;
+}
+.background_image {
+  margin-top: 110px !important;
+}
+}
+
+@media only screen
+and (max-device-width: 536px) {
+.background_image_container {
+  width: 470px !important;
+}
+.background_color_more_details {
+  width: 470px !important;
+}
+.atmospheric_pressure_quality_value_sun_row {
+  gap: 30px !important;
+}
+.background_color_more_details_card1 {
+  width: 470px !important;
+}
+.background_color_more_details_card2 {
+  width: 470px !important;
+}
+.all_numeric_value_row {
+  gap: 15px !important;
+}
+.accu_weather_card_background_color {
+  width: 470px !important;
+  margin-top: 5px !important;
+}
+}
