@@ -785,12 +785,12 @@ def weather_value(n_intervals):
             html.Img(src = app.get_asset_url('rain.png'),
                      className = 'forecast_image'),
     ]
-    elif average_predicted_pressure > 1000 and average_predicted_pressure < 1010:
+    elif average_predicted_pressure > 1000 and average_predicted_pressure < 1015:
         return [
             html.Img(src = app.get_asset_url('cloud.png'),
                      className = 'forecast_image'),
     ]
-    elif average_predicted_pressure > 1010:
+    elif average_predicted_pressure > 1015:
         return [
             html.Img(src = app.get_asset_url('sunny.png'),
                      className = 'forecast_image'),
