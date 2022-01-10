@@ -127,7 +127,7 @@
 }
 }
 
-@media only screen
+/*@media only screen
 and (max-device-width: 622px) {
 .title_date_time_container {
   height: 60px !important;
@@ -177,4 +177,4 @@ and (max-device-width: 536px) {
   width: 470px !important;
   margin-top: 5px !important;
 }
-}
+}*/
