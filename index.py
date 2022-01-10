@@ -34,18 +34,6 @@ import time
 # df5 = pd.read_csv('weather_data.csv', names = header_list)
 # df6 = df5.tail(2)
 
-header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
-               'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-df = pd.read_csv('weather_data.csv', names = header_list)
-
-i = 1
-while i == 1:
-    time.sleep(6)
-    # if df.shape[0] >= 125143:
-    #     df.drop(df.index[0:123943], inplace = True)
-    df1 = df.tail(1200)
-    df1.to_csv('weather_data1.csv', index = False)
-
 font_awesome = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
 meta_tags = [{"name": "viewport", "content": "width=device-width"}]
 external_stylesheets = [meta_tags, font_awesome]
@@ -224,7 +212,7 @@ app.layout = html.Div([
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     df['Date Time'] = pd.to_datetime(df['Date Time'])
     df['Date'] = df['Date Time'].dt.date
     df['Date'] = pd.to_datetime(df['Date'])
@@ -245,7 +233,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
     get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
@@ -368,7 +356,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
     get_rain_value = df['Rain'].tail(1).iloc[0].astype(float)
     get_led_on = df['Photo Resistor LED'].tail(1).iloc[0]
@@ -442,7 +430,7 @@ def weather_value(n_intervals):
     acc_temp = df1['Temperature'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0]
     difference_data = get_temp - acc_temp
 
@@ -504,7 +492,7 @@ def weather_value(n_intervals):
     acc_hum = df1['Humidity'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_hum = df['Humidity'].tail(1).iloc[0]
 
     if get_hum == acc_hum:
@@ -541,7 +529,7 @@ def weather_value(n_intervals):
     acc_dew_point = df1['Dew Point'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_humidity = df['Humidity'].tail(1).iloc[0].astype(float)
     dew_point = get_temp - ((100 - get_humidity) / 5)
@@ -605,7 +593,7 @@ def weather_value(n_intervals):
     acc_atm_pressure = df1['Atmospheric Pressure'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_atm_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
 
     if get_atm_pressure == acc_atm_pressure:
@@ -642,7 +630,7 @@ def weather_value(n_intervals):
     acc_wind_speed = df1['Wind Speed'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
     if get_wind_speed == acc_wind_speed:
@@ -679,7 +667,7 @@ def weather_value(n_intervals):
     acc_wind_direction = df1['Wind Direction'].tail(1).iloc[0]
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
 
     # degree_value = [112.5, 67.5, 90, 157.5, 135, 202.5, 180, 22.5, 45, 247.5, 225, 337.5, 0, 292.5, 315, 270]
     # direction_value = ["ESE", "ENE", "E", "SSE", "SE", "SSW", "S", "NNE", "NE", "WSW", "SW", "NNW", "N", "WNW", "NW",
@@ -728,7 +716,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     now = datetime.now()
     day = now.strftime('%a')
@@ -752,7 +740,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     now = datetime.now()
     day = now.strftime('%a')
@@ -771,7 +759,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_led_on = df['Photo Resistor LED'].tail(1).iloc[0]
     df['Air Pressure'] = df['Air Pressure'] / 100
     df2 = df[['Temperature', 'Air Pressure']].tail(1194)
@@ -814,7 +802,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     df2 = df[['Air Pressure', 'Temperature']].tail(1194)
     df_x = df2.drop(['Temperature'], axis = 1)
     df_y = df2['Temperature']
@@ -835,7 +823,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     now = datetime.now()
     day = now.strftime('%a')
@@ -994,7 +982,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     convert_c_t_fahrenheit = (get_temp * 9/5) + 32
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
@@ -1252,7 +1240,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     df['Air Pressure'] = df['Air Pressure'] / 100
     get_pressure = df['Air Pressure'].tail(1).iloc[0]
     get_photo_resistor_value = df['Photo Resistor Value'].tail(1).iloc[0].astype(float)
@@ -1332,7 +1320,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0]
     df2 = df[['Air Pressure', 'Temperature']].tail(1194)
     df_x = df2.drop(['Temperature'], axis = 1)
@@ -1361,7 +1349,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     get_temp_add = df['Temperature'].tail(1).iloc[0].astype(float) + 3.00
     get_temp_subtract = df['Temperature'].tail(1).iloc[0].astype(float) - 3.00
@@ -1390,7 +1378,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_humidity = df['Humidity'].tail(1).iloc[0].astype(float)
     get_temp = df['Temperature'].tail(1).iloc[0].astype(float)
     dew_point = get_temp - ((100 - get_humidity) / 5)
@@ -1485,7 +1473,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     df['Air Pressure'] = df['Air Pressure'] / 1
     df['Pressure_Difference'] = df['Air Pressure'].diff()
     pressure_difference = df['Pressure_Difference'].tail(1).iloc[0].astype(float)
@@ -1563,7 +1551,7 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_air_quality = df['CO2 Level'].tail(1).iloc[0].astype(float)
 
     if get_air_quality >= 250.0 and get_air_quality <= 400.0:
@@ -1770,7 +1758,7 @@ def weather_value(n_intervals):
 def update_graph_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
     if get_wind_speed <= 20.00:
@@ -1949,7 +1937,7 @@ def update_graph_value(n_intervals):
 def weather_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     get_wind_speed = df['Wind Speed KPH'].tail(1).iloc[0].astype(float)
 
     return [
@@ -2011,7 +1999,7 @@ def weather_value(n_intervals):
 def update_graph_value(n_intervals):
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
-    df = pd.read_csv('weather_data1.csv', names = header_list)
+    df = pd.read_csv('weather_data.csv', names = header_list)
     # r_value = [112.5,67.5,90,157.5,135,202.5,180,22.5,45,247.5,225,337.5,0,292.5,315,270]
     # theta_value = ["ESE","ENE","E","SSE","SE","SSW","S","NNE","NE","WSW","SW","NNW","N","WNW","NW","W"]
     # r_value = [0,22.5,45,67.5,90,112.5,135,157.5,180,202.5,225,247.5,270,292.5,315,337.5]
