@@ -1745,8 +1745,8 @@ def weather_value(n_intervals):
                        className = 'sunset_value'
                        ),
                 html.P(
-                    # '16:09:29',
-                       sun_set_time_1,
+                    '16:15:39',
+                       # sun_set_time_1,
                        className = 'sunset_text_value'
                        ),
             ], className = 'sunset_column'),
