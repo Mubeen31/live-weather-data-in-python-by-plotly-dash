@@ -1477,7 +1477,7 @@ def weather_value(n_intervals):
     df['Air Pressure'] = df['Air Pressure'] / 1
     df['Pressure_Difference'] = df['Air Pressure'].diff()
     pressure_difference = df['Pressure_Difference'].tail(1).iloc[0].astype(float)
-    get_air_pressure = df['Air Pressure'][-2].iloc[0].astype(float)
+    get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
     convert_pa_to_mb = get_air_pressure / 100
 
     if pressure_difference < 0:
