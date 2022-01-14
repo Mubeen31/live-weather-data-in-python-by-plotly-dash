@@ -1477,7 +1477,7 @@ def weather_value(n_intervals):
     df['Air Pressure'] = df['Air Pressure'] / 1
     df['Pressure_Difference'] = df['Air Pressure'].diff()
     pressure_difference = df['Pressure_Difference'].tail(1).iloc[0].astype(float)
-    get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
+    get_air_pressure = df['Air Pressure'][-2].iloc[0].astype(float)
     convert_pa_to_mb = get_air_pressure / 100
 
     if pressure_difference < 0:
@@ -1674,8 +1674,8 @@ def weather_value(n_intervals):
                        className = 'sunrise_value'
                        ),
                 html.P(
-                    # '08:21:01',
-                       sun_rise_time_2,
+                    '08:21:01',
+                       # sun_rise_time_2,
                        className = 'sunrise_text_value'
                        ),
             ], className = 'sunrise_column'),
@@ -1690,8 +1690,8 @@ def weather_value(n_intervals):
                        className = 'sunrise_value'
                        ),
                 html.P(
-                    # '08:21:01',
-                       sun_rise_time_1,
+                    '08:21:01',
+                       # sun_rise_time_1,
                        className = 'sunrise_text_value'
                        ),
             ], className = 'sunrise_column'),
@@ -1727,8 +1727,8 @@ def weather_value(n_intervals):
                        className = 'sunset_value'
                        ),
                 html.P(
-                    # '16:09:29',
-                       sun_set_time_2,
+                    '16:09:29',
+                    #    sun_set_time_2,
                        className = 'sunset_text_value'
                        ),
             ], className = 'sunset_column'),
@@ -1745,8 +1745,8 @@ def weather_value(n_intervals):
                        className = 'sunset_value'
                        ),
                 html.P(
-                    # '16:09:29',
-                       sun_set_time_1,
+                    '16:09:29',
+                       # sun_set_time_1,
                        className = 'sunset_text_value'
                        ),
             ], className = 'sunset_column'),
