@@ -20,7 +20,7 @@ fifteen = 'NW'
 sixteen = 'W'
 
 # copy the port from your Arduino editor
-PORT = 'COM4'
+PORT = 'COM3'
 ser = serial.Serial(PORT, 9600)
 
 while True:
