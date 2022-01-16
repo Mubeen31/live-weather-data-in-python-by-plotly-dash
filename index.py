@@ -370,14 +370,14 @@ def weather_value(n_intervals):
                      className = 'background_image_container'),
         ]
 
-    # if get_rain_value >= 800.0 and get_rain_value <= 900.0:
-    #     return [
-    #         html.Div(style = {'background-image': 'url("/assets/rain.jpg")',
-    #                           'background-repeat': 'no-repeat',
-    #                           'background-size': 'auto'
-    #                           },
-    #                  className = 'background_image_container'),
-    #     ]
+    if get_rain_value >= 800.0 and get_rain_value <= 900.0:
+        return [
+            html.Div(style = {'background-image': 'url("/assets/rain.jpg")',
+                              'background-repeat': 'no-repeat',
+                              'background-size': 'auto'
+                              },
+                     className = 'background_image_container'),
+        ]
     if get_rain_value < 800.0:
         return [
             html.Div(style = {'background-image': 'url("/assets/rain.jpg")',
@@ -1061,27 +1061,27 @@ def weather_value(n_intervals):
             ], className = 'status_temperature_right_temperature_row'),
         ]
 
-    # if get_rain_value >= 800.0 and get_rain_value <= 900.0:
-    #     return [
-    #         html.Div([
-    #             html.Div([
-    #                 html.Img(src = app.get_asset_url('rain.png'),
-    #                          className = 'image_position'),
-    #                 html.P('{0:,.2f}°C'.format(get_temp),
-    #                        className = 'status_temperature'
-    #                        ),
-    #             ], className = 'image_position_status_temperature'),
-    #
-    #             html.Div([
-    #                 html.P('Showers',
-    #                        className = 'status_temperature_right'
-    #                        ),
-    #                 html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(convert_f_t_c),
-    #                        className = 'status_temperature_right_temperature'
-    #                        ),
-    #             ], className = 'status_temperature_right_temperature_column')
-    #         ], className = 'status_temperature_right_temperature_row'),
-    #     ]
+    if get_rain_value >= 800.0 and get_rain_value <= 900.0:
+        return [
+            html.Div([
+                html.Div([
+                    html.Img(src = app.get_asset_url('rain.png'),
+                             className = 'image_position'),
+                    html.P('{0:,.2f}°C'.format(get_temp),
+                           className = 'status_temperature'
+                           ),
+                ], className = 'image_position_status_temperature'),
+
+                html.Div([
+                    html.P('Showers',
+                           className = 'status_temperature_right'
+                           ),
+                    html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(convert_f_t_c),
+                           className = 'status_temperature_right_temperature'
+                           ),
+                ], className = 'status_temperature_right_temperature_column')
+            ], className = 'status_temperature_right_temperature_row'),
+        ]
 
     if get_rain_value < 800.0:
         return [
