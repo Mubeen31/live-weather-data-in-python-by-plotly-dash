@@ -241,6 +241,27 @@ def weather_value(n_intervals):
     get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
     convert_pa_to_mb = get_air_pressure / 100
 
+    if get_rain_value <= 800.0 and get_led_on == ' LED ON ':
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('night-rain.png'),
+                         className = 'cloud_image'),
+                html.P('{0:,.0f}°C'.format(get_temp),
+                       className = 'temperature_value'
+                       ),
+            ], className = 'image_value'),
+        ]
+
+    if get_rain_value >= 800.0 and get_rain_value <= 900.0 and get_led_on == ' LED ON ':
+        return [
+            html.Div([
+                html.Img(src = app.get_asset_url('night-rain.png'),
+                         className = 'cloud_image'),
+                html.P('{0:,.0f}°C'.format(get_temp),
+                       className = 'temperature_value'
+                       ),
+            ], className = 'image_value'),
+        ]
     if convert_pa_to_mb > 1000 and get_led_on == ' LED ON ':
         return [
             html.Div([
@@ -255,17 +276,6 @@ def weather_value(n_intervals):
         return [
             html.Div([
                 html.Img(src = app.get_asset_url('night-cloud.png'),
-                         className = 'cloud_image'),
-                html.P('{0:,.0f}°C'.format(get_temp),
-                       className = 'temperature_value'
-                       ),
-            ], className = 'image_value'),
-        ]
-
-    if get_rain_value <= 800.0 and get_led_on == ' LED ON ':
-        return [
-            html.Div([
-                html.Img(src = app.get_asset_url('night-rain.png'),
                          className = 'cloud_image'),
                 html.P('{0:,.0f}°C'.format(get_temp),
                        className = 'temperature_value'
@@ -370,9 +380,9 @@ def weather_value(n_intervals):
                      className = 'background_image_container'),
         ]
 
-    if get_rain_value >= 800.0 and get_rain_value <= 900.0:
+    if get_rain_value >= 800.0 and get_rain_value <= 900.0 and get_led_on == ' LED ON ':
         return [
-            html.Div(style = {'background-image': 'url("/assets/rain.jpg")',
+            html.Div(style = {'background-image': 'url("/assets/night-rain.jpg")',
                               'background-repeat': 'no-repeat',
                               'background-size': 'auto'
                               },
@@ -996,6 +1006,50 @@ def weather_value(n_intervals):
     get_air_pressure = df['Air Pressure'].tail(1).iloc[0].astype(float)
     convert_pa_to_mb = get_air_pressure / 100
 
+    if get_rain_value <= 800.0 and get_led_on == ' LED ON ':
+        return [
+            html.Div([
+                html.Div([
+                    html.Img(src = app.get_asset_url('night-rain.png'),
+                             className = 'image_position'),
+                    html.P('{0:,.2f}°C'.format(get_temp),
+                           className = 'status_temperature'
+                           ),
+                ], className = 'image_position_status_temperature'),
+
+                html.Div([
+                    html.P('Rain',
+                           className = 'status_temperature_right'
+                           ),
+                    html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(convert_f_t_c),
+                           className = 'status_temperature_right_temperature'
+                           ),
+                ], className = 'status_temperature_right_temperature_column')
+            ], className = 'status_temperature_right_temperature_row'),
+        ]
+
+    if get_rain_value >= 800.0 and get_rain_value <= 900.0 and get_led_on == ' LED ON ':
+        return [
+            html.Div([
+                html.Div([
+                    html.Img(src = app.get_asset_url('night-rain.png'),
+                             className = 'image_position'),
+                    html.P('{0:,.2f}°C'.format(get_temp),
+                           className = 'status_temperature'
+                           ),
+                ], className = 'image_position_status_temperature'),
+
+                html.Div([
+                    html.P('Showers',
+                           className = 'status_temperature_right'
+                           ),
+                    html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(convert_f_t_c),
+                           className = 'status_temperature_right_temperature'
+                           ),
+                ], className = 'status_temperature_right_temperature_column')
+            ], className = 'status_temperature_right_temperature_row'),
+        ]
+
     if convert_pa_to_mb > 1000 and get_led_on == ' LED ON ':
         return [
             html.Div([
@@ -1030,28 +1084,6 @@ def weather_value(n_intervals):
 
                 html.Div([
                     html.P('Cloudy',
-                           className = 'status_temperature_right'
-                           ),
-                    html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(convert_f_t_c),
-                           className = 'status_temperature_right_temperature'
-                           ),
-                ], className = 'status_temperature_right_temperature_column')
-            ], className = 'status_temperature_right_temperature_row'),
-        ]
-
-    if get_rain_value <= 800.0 and get_led_on == ' LED ON ':
-        return [
-            html.Div([
-                html.Div([
-                    html.Img(src = app.get_asset_url('night-rain.png'),
-                             className = 'image_position'),
-                    html.P('{0:,.2f}°C'.format(get_temp),
-                           className = 'status_temperature'
-                           ),
-                ], className = 'image_position_status_temperature'),
-
-                html.Div([
-                    html.P('Rain',
                            className = 'status_temperature_right'
                            ),
                     html.P('FEELS LIKE' + ' ' + ' ' + '{0:,.0f}°C'.format(convert_f_t_c),
@@ -1660,9 +1692,9 @@ def weather_value(n_intervals):
     filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
     sun_rise_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
     filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-    sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED OFF ') &
-                                        (filter_led_date_1['Time'] >= '00:00:00') &
-                                        (filter_led_date_1['Time'] <= '12:00:00')]['Time'].head(1).iloc[0]
+    # sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED OFF ') &
+    #                                     (filter_led_date_1['Time'] >= '00:00:00') &
+    #                                     (filter_led_date_1['Time'] <= '12:00:00')]['Time'].head(1).iloc[0]
 
     if time_name >= '00:00:00' and time_name <= '08:25:00':
         return [
@@ -1681,6 +1713,7 @@ def weather_value(n_intervals):
             ], className = 'sunrise_column'),
         ]
     elif time_name > '08:25:00' and time_name <= '23:59:59':
+        sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
         return [
             html.Div([
                 html.Img(src = app.get_asset_url('sunrise.png'),
