@@ -388,6 +388,14 @@ def weather_value(n_intervals):
                               },
                      className = 'background_image_container'),
         ]
+    if get_rain_value >= 800.0 and get_rain_value <= 900.0:
+        return [
+            html.Div(style = {'background-image': 'url("/assets/rain.jpg")',
+                              'background-repeat': 'no-repeat',
+                              'background-size': 'auto'
+                              },
+                     className = 'background_image_container'),
+        ]
     if get_rain_value < 800.0:
         return [
             html.Div(style = {'background-image': 'url("/assets/rain.jpg")',
