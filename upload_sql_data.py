@@ -31,4 +31,10 @@ import pandas as pd
 #                index = False
 #                )
 
+# header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
+#                'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
+# df = pd.read_csv('weather_data.csv', names = header_list)
+# df1 = df.tail(1200)
+# df1.to_csv('wd.csv')
+
 
