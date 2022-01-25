@@ -17,7 +17,7 @@ int targetValue = 500;
 ///////photoresister///////
 int pinLED = 3;
 int pinPhotoresister = A1;
-int photoresisterValue = 400;
+int photoresisterValue = 350;
 ///////photoresister///////
 
 ///////wind speed///////
