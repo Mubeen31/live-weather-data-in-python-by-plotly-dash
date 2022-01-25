@@ -496,11 +496,11 @@ def weather_value(n_intervals):
 def weather_value(n_intervals):
     acc_header_list = ['Temperature', 'Wind Direction', 'Wind Speed', 'Humidity', 'Dew Point', 'Atmospheric Pressure']
     df1 = pd.read_csv('acc_weather_data.csv', names = acc_header_list)
-    acc_hum = df1['Humidity'].tail(1).iloc[0]
+    acc_hum = df1['Humidity'].tail(1).iloc[0].astype(float)
     header_list = ['Date Time', 'Humidity', 'Rain', 'Photo Resistor Value', 'Photo Resistor LED', 'Revolution', 'RPM',
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
-    get_hum = df['Humidity'].tail(1).iloc[0]
+    get_hum = df['Humidity'].tail(1).iloc[0].astype(float)
 
     if get_hum == acc_hum:
         return [
