@@ -770,6 +770,7 @@ def weather_value(n_intervals):
     get_led_on = df['Photo Resistor LED'].tail(1).iloc[0]
     df['Air Pressure'] = df['Air Pressure'] / 100
     df2 = df[['Temperature', 'Air Pressure']].tail(1194)
+    df2.dropna(inplace = True)
     df_x = df2.drop(['Air Pressure'], axis = 1)
     df_y = df2['Air Pressure']
     lr = linear_model.LinearRegression()
@@ -811,6 +812,7 @@ def weather_value(n_intervals):
                    'Wind Speed KPH', 'Wind Degree', 'Wind Direction', 'CO2 Level', 'Temperature', 'Air Pressure']
     df = pd.read_csv('weather_data.csv', names = header_list)
     df2 = df[['Air Pressure', 'Temperature']].tail(1194)
+    df2.dropna(inplace = True)
     df_x = df2.drop(['Temperature'], axis = 1)
     df_y = df2['Temperature']
     lr = linear_model.LinearRegression()
@@ -1352,6 +1354,7 @@ def weather_value(n_intervals):
     df = pd.read_csv('weather_data.csv', names = header_list)
     get_temp = df['Temperature'].tail(1).iloc[0]
     df2 = df[['Air Pressure', 'Temperature']].tail(1194)
+    df2.dropna(inplace = True)
     df_x = df2.drop(['Temperature'], axis = 1)
     df_y = df2['Temperature']
     lr = linear_model.LinearRegression()
