@@ -1703,7 +1703,7 @@ def weather_value(n_intervals):
                        className = 'sunrise_value'
                        ),
                 html.P(
-                    '08:04:01',
+                    '08:03:01',
                        # sun_rise_time_2,
                        className = 'sunrise_text_value'
                        ),
@@ -1720,7 +1720,7 @@ def weather_value(n_intervals):
                        className = 'sunrise_value'
                        ),
                 html.P(
-                    '08:04:01',
+                    '08:03:01',
                        # sun_rise_time_1,
                        className = 'sunrise_text_value'
                        ),
