@@ -1692,9 +1692,9 @@ def weather_value(n_intervals):
     filter_led_date_2 = df[df['Date'] == unique_date[-2]][['Date', 'Photo Resistor LED', 'Time']]
     sun_rise_time_2 = filter_led_date_2[(filter_led_date_2['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
     filter_led_date_1 = df[df['Date'] == unique_date[-1]][['Date', 'Photo Resistor LED', 'Time']]
-    # sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED OFF ') &
-    #                                     (filter_led_date_1['Time'] >= '00:00:00') &
-    #                                     (filter_led_date_1['Time'] <= '12:00:00')]['Time'].head(1).iloc[0]
+    sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED OFF ') &
+                                        (filter_led_date_1['Time'] >= '00:00:00') &
+                                        (filter_led_date_1['Time'] <= '12:00:00')]['Time'].head(1).iloc[0]
 
     if time_name >= '00:00:00' and time_name <= '08:25:00':
         return [
@@ -1713,7 +1713,7 @@ def weather_value(n_intervals):
             ], className = 'sunrise_column'),
         ]
     elif time_name > '08:25:00' and time_name <= '23:59:59':
-        sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
+        # sun_rise_time_1 = filter_led_date_1[(filter_led_date_1['Photo Resistor LED'] == ' LED OFF ')]['Time'].head(1).iloc[0]
         return [
             html.Div([
                 html.Img(src = app.get_asset_url('sunrise.png'),
